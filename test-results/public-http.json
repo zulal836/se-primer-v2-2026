@@ -1,0 +1,8 @@
+{
+  "app": "https://zulal836.github.io/se-primer-v2-2026/",
+  "app_http": 200,
+  "demo": "https://zulal836.github.io/se-primer-v2-2026/demo.mp4",
+  "demo_http": 200,
+  "model_sha256": "5a08f081cdf16ec82365879e2cad5479575481de0a3eb59e1313a1f8a1982938",
+  "no_auth_headers_sent": true
+}

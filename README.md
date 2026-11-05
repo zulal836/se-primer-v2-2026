@@ -1,8 +1,10 @@
 # SE Primer v2 — Son Boş Randevu
 
+[Oyunu aç](https://zulal836.github.io/se-primer-v2-2026/) · [73 saniyelik demo video](https://zulal836.github.io/se-primer-v2-2026/demo.mp4) · [GitHub kaynak kodu](https://github.com/zulal836/se-primer-v2-2026)
+
 Türkçe, telefona uyumlu üç kararlı yazılım mühendisliği oyunu. Çift rezervasyon olayında sürüm geri alma, eşzamanlılık testi ve kişisel veriyi koruma ele alınır. Üç profil sorusu anlatımı uyarlar. Kural modu ile gerçek ONNX kullanan davranış modeli karşılaştırılabilir. Sunucu, kullanıcı hesabı veya ücretli API gerekmez.
 
-**Durum:** gerçek katılımcı verisi henüz yok. Model, açıkça işaretlenmiş sentetik geliştirme demosudur. Nihai gerçek-veri değerlendirmesi, HF yayını ve insan tutor değerlendirmesi bekler. Yaklaşık 71 saniyelik gerçek tarayıcı demo kaydı `public/demo.mp4` içinde hazırdır; otomatik oynatılmıştır, insan oturumu değildir. Güncel test sonuçları `TEST_SONUCLARI.md`, yayın durumu `RELEASE.md` içindedir.
+**Durum:** gerçek katılımcı verisi henüz yok. Model, açıkça işaretlenmiş sentetik geliştirme demosudur. Nihai gerçek-veri değerlendirmesi, HF yayını ve insan tutor değerlendirmesi bekler. 73 saniyelik gerçek tarayıcı demo kaydı `public/demo.mp4` içinde hazırdır; otomatik oynatılmıştır, insan oturumu değildir. Güncel test sonuçları `TEST_SONUCLARI.md`, yayın durumu `RELEASE.md` içindedir.
 
 ## Başlangıç: en fazla üç komut (Windows PowerShell)
 
@@ -58,7 +60,7 @@ npm run build -- --base=./
 
 Temel oyun testleri model üretilmeden önce `npm run test:base` ile çalıştırılır, modelden sonra tüm suite regresyon olarak tekrar çalıştırılır. Sekiz yol, iki son, profil, katılım, yeniden başlatma, CSV, yerel silme ve yükleme hatasında yedek test edilir. Python oracle beş sabit girdinin gerçek ONNX olasılıklarını verir; Cypress aynı gerçek dosyada toleransı kontrol eder. Model yardım derinliğini DOM üzerinde değiştirmelidir. Test yüzeyi `window.primer.predict` yalnız gerçek üretim çıkarımını çağırır. Model testinde inference taklidi yoktur; yedek testinde yalnız başarısız indirme simüle edilir.
 
-Tutor sabit Sokratik metinlerden oluşur, LLM çıktısı diye sunulmaz. `eval/tutor_eval.csv` 20 değerlendirme örneği ve boş insan etiketlerini içerir. Henüz insan başarım oranı hesaplanmamıştır. `SINAV_TASARIMI.md` ayrı klasik vize sorusudur; oyuna eklenmez. `DEMO.md` 75 saniyelik çekim planıdır.
+Tutor sabit Sokratik metinlerden oluşur, LLM çıktısı diye sunulmaz. `eval/tutor_eval.csv` 20 değerlendirme örneği ve boş insan etiketlerini içerir. Henüz insan başarım oranı hesaplanmamıştır. `SINAV_TASARIMI.md` ayrı klasik vize sorusudur; oyuna eklenmez. `DEMO.md` gerçek demo kaydı ve çekim planının ayrıntılarını içerir.
 
 ## Yayın
 
@@ -95,3 +97,4 @@ Teslim için dört gerçek bağlantı: GitHub reposu, commit'e sabit HF modeli, 
 2. Codex; eğitim, ONNX, yayın betikleri ve testleri yazıp komutlarla doğruladı; gerçek sonuçlar test raporunda yer alır.
 3. Codex; belgeler, tutor değerlendirme taslağı ve demo planını hazırladı. Tutor metinleri üretim sırasında LLM ile oluşturulmaz.
 4. Kullanıcıya yapılmamış manuel düzeltme, insan değerlendirmesi veya gerçek oturum katkısı atfedilmemiştir. Gerçek veri ve insan incelemesi beklemektedir.
+

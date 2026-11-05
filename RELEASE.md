@@ -8,7 +8,17 @@ GitHub public proje deposu oluşturuldu: https://github.com/zulal836/se-primer-v
 
 Model dosyasındaki `data_source=sentetik`, `publishable=false` geliştirme durumunu gösterir. Bu model gerçek veriyle eğitilmiş v2.0 diye yayımlanamaz. Gerçek oturum sayısı başlangıçta 0; insan tutor değerlendirmesi bekliyor. Nihai HF commit'i henüz yoktur. GitHub ve Pages yayın sonuçları doğrulandıktan sonra bu dosyaya gerçek bağlantılar eklenir; `publication.json` otomatik yayın makbuzudur. Bağlantı şablonları gerçek bağlantı diye sunulmaz.
 
-## Mimari ödünleşim
+## Doğrulanan ilk web yayını
+
+- Uygulama: https://zulal836.github.io/se-primer-v2-2026/
+- Demo MP4: https://zulal836.github.io/se-primer-v2-2026/demo.mp4 (73.040 saniye)
+- Yayımlanan web kaynak commit'i: `ebb2b9126714e54e1d26839e652657a903bff246`
+- Başarılı test/build/deploy koşusu: https://github.com/zulal836/se-primer-v2-2026/actions/runs/42100198789
+- Giriş bilgisi gönderilmeden HTML ve MP4 HTTP 200 doğrulandı. Model SHA-256: `5a08f081cdf16ec82365879e2cad5479575481de0a3eb59e1313a1f8a1982938`; aynı commit'teki yerel dosya ile eşleşiyor. `test-results/public-http.json` makbuzdur.
+- Bu, sentetik geliştirme sürümünün web yayınıdır. Nihai gerçek-veri modeli/HF yayını değildir. Gerçek model başarısız olursa bu commit doğrulanmış kural+demo uygulamasına dönüş noktasıdır.
+- Canlı sitede giriş yapılmamış Cypress oturumunda 2/2 test geçti: gerçek ONNX ile beş olasılık karşılaştırması, üç kararla oyun sonu ve public MP4. İlk yükleme büyük WASM dosyası nedeniyle onlarca saniye sürebilir; hazır olana kadar kural yedeği görünür.
+
+## Mimari seçeneklerin karşılaştırması
 
 | Seçenek | İnternet / gecikme | Veri cihazdan çıkar mı? | Model gizliliği |
 |---|---|---|---|
