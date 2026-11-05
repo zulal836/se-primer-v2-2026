@@ -1,0 +1,82 @@
+# Devam notu — çalışma duraklatıldı
+
+6 Kasım 2026, Europe/Istanbul. Kullanıcı şimdilik ara verdi; bu dosya sonraki oturum için devir notudur.
+
+## Kullanıcının devam eden sınırları
+
+- **Gerçek veriler gelmeden nihai eğitim veya nihai model yayını yapma.** Mevcut model sentetik geliştirme demosudur; gerçek kullanıcı ihtiyacıyla doğrulanmış gibi sunulamaz.
+- Başka projeleri ve sistem/güvenlik ayarlarını değiştirme; ücretli hizmet kullanma.
+- GitHub Pages yayını açık kalacak. Teslim formunu kullanıcı adına gönderme.
+- İnsan oturumu, değerlendirme, metrik veya yayın bağlantısı uydurma. Eksik insan/hesap katkısını açıkça belirt.
+
+## Kaydedilen mevcut durum
+
+- Proje klasörü: `C:\Users\bjkzl\Desktop\SE-Primer-v2`.
+- Duraklatma öncesindeki son Git commit'i: `99df60e` (belgeler ve canlı kontrol sonuçları). Çalışma ağacı bu not yazılmadan önce temizdi.
+- Yayımlanan uygulama kaynak commit'i: `ebb2b9126714e54e1d26839e652657a903bff246`.
+- Eğitim öncesi kabul eşikleri ayrı commit'te kaydedildi: `5e9008e`.
+- GitHub: https://github.com/zulal836/se-primer-v2-2026
+- Açık kalacak uygulama: https://zulal836.github.io/se-primer-v2-2026/
+- Demo: https://zulal836.github.io/se-primer-v2-2026/demo.mp4
+- Başarılı bulut test/build/deploy koşusu: https://github.com/zulal836/se-primer-v2-2026/actions/runs/42100198789
+- HF nihai model deposu/commit bağlantısı **yok**. Son kontrolde yerel HF girişi bulunmadı; GitHub kimliği kullanılabildi.
+
+## Tamamlananlar
+
+- Türkçe, mobil ekrana uyumlu Vite web oyunu: üç profil sorusu, çift rezervasyon senaryosu, üç karar, sekiz yol, iki son, teknik sonuçlar ve sabit Sokratik tutor metinleri. Üretim sırasında LLM/API çağrısı yok.
+- Kural modu, gerçek `onnxruntime-web` çıkarımı ve görünür kural yedeği. Model açıklama derinliğini gerçekten değiştiriyor.
+- Açık katılım, rastgele oturum kimliği, karar bazlı yerel kayıt, model yardımından önce öz bildirim etiketi, CSV indirme, yeni oturum ve silme akışı.
+- `data/oturumlar.csv` yalnız başlık içeriyor; gerçek insan oturumu eklenmedi. Gerçek CSV Git'ten hariç tutuluyor. Kurulum, eksikse `data/oturumlar.example.csv` üzerinden boş dosyayı oluşturur.
+- Veri sözlüğü ve CSV birleştirme aracı. Sentetik veri ayrı dosyada, üretici ve seed=42 belgeli.
+- Oturum bazlı split, önceden belirlenen eval kapısı, sklearn→ONNX dönüşümü, JSON şeması, model kartı, hash'ler, beş Python oracle girdisi ve tarayıcı paritesi.
+- Model/config/oracle, eğitim tekrarında bayt düzeyinde aynı üretildi; ONNX graph adı sabitlendi.
+- GitHub ve ücretsiz Pages yayını; HF için gerçek-veri kapısı olan yayın betiği ve sabit commit manifest akışı hazır.
+- README, RELEASE, TEST_SONUCLARI, SINAV_TASARIMI, 20 örneklik tutor değerlendirme taslağı ve demo belgeleri hazır.
+- `public/demo.mp4` gerçek tarayıcı kaydıdır: **73.040 saniye**. Cypress otomatik oynatımıdır, insan oturumu değildir; seslendirme yoktur. Sentetik demo etiketi görünür.
+
+## Gerçekte doğrulananlar
+
+- Model eklenmeden temel oyun: 11/11 Cypress testi.
+- Son suite: 15/15 Cypress testi (12 oyun + 3 model/parite); yerel geliştirme, üretim paketi ve bulut ortamında geçti.
+- Python: 6/6 test; beş ONNX referans girdisi geçti.
+- Canlı sitede giriş yapılmamış yeni tarayıcı oturumu: 2/2 test; gerçek ONNX, beş referans olasılığı, oyun sonu ve public MP4 doğrulandı.
+- Tarayıcı/Python en büyük ölçülen olasılık farkı yaklaşık `1.1920928955e-7`; kabul sınırı `<1e-4`.
+- Sentetik eval: balanced accuracy `0.9260651629`, ayrıntılı recall `0.9047619048`. Bunlar gerçek insan sonuçları değildir.
+- sklearn/ONNX en büyük fark: `1.0823183327e-7`.
+- Build ve GitHub Pages deploy başarılı; npm audit: 0 güvenlik açığı.
+- Yayımlanan model SHA-256: `5a08f081cdf16ec82365879e2cad5479575481de0a3eb59e1313a1f8a1982938`.
+- Ayrıntılar: `TEST_SONUCLARI.md`, `test-results/`, `publication.json`.
+
+İlk WASM indirmesi yaklaşık 12 MB ve onlarca saniye sürebiliyor. İlk canlı test 60 saniyede zaman aşımına uğradı; 180 saniyelik sınırla ikinci koşu 48 saniyede geçti. Model hazır olana kadar oyun kural yedeğiyle çalışabilir. Fiziksel telefondan erişim ayrıca denenmedi; mobil viewport test edildi.
+
+## Yerel sunucular
+
+Bu proje için açılan Vite geliştirme sunucusu 5173 portunda, PID 3912 ve proje içindeki `vite.js` komutuyla doğrulandıktan sonra durduruldu. 5175 önizleme ve 5180 test sunucuları da kapanmıştı. Son port kontrolünde 5173/5175/5180 üzerinde dinleyen sunucu kalmadı. Başka projelerin süreçleri durdurulmadı. GitHub Pages'e kapatma/değiştirme işlemi yapılmadı.
+
+## Kalan zorunlu işler ve önerilen sıra
+
+1. Gönüllülerden **en az 15 tamamlanmış gerçek oturum** topla (ör. üç kişi beşer oyun). Her oturum üç karar içersin; kaynak `gerçek` olsun. Oyuncu model yardımını görmeden kısa/ayrıntılı ihtiyacını kendisi bildirsin. Katılım ve kişisel bilgi toplamama koşulları korunsun.
+2. CSV'leri `private-data/` altında tut; `scripts/merge_csv.py` ile birleştir. Yinelenen/çelişen kayıtları, tamamlanmış farklı oturum sayısını ve sınıf sayılarını kontrol et. Ham gerçek veriyi public depoya gönderme.
+3. `eval/tutor_eval.csv` içindeki 20 örneği insan değerlendirsin. Şu an insan etiketleri boş ve durum `bekliyor`; başarı oranı hesaplanmadı.
+4. **Ancak gerçek veriler geldikten sonra** varsayılan `train.py` komutuyla gerçek veri eğitimini çalıştır. En az 15 tamamlanmış oturum, her sınıfta en az 10 etiket ve testte her sınıftan en az beş örnek aranıyor. Daha fazla veri gerekebilir. Balanced accuracy >=0.70 ve ayrıntılı recall >=0.65 eşiklerini sırf geçsin diye düşürme. Başarısız model yeni sürüm olarak yayımlanmasın.
+5. Python/ONNX paritesi, sözleşme, tüm E2E ve regresyon testlerini gerçek model adayıyla yeniden çalıştır. Mevcut bazı testler sentetik demo durumuna göre yazıldı; gerçek modele geçerken beklentileri dürüstçe gözden geçir, kapıları gevşetme veya çıkarımı taklit etme.
+6. Kullanıcı HF girişini tamamlasın (`.venv/Scripts/hf.exe auth login`). Uygun gerçek model için `scripts/publish_model.py` ile yeni public model deposu oluştur; model/config aynı commit'te yüklensin. Web manifestini o tam commit'e sabitle; tekrar test edip Pages'e yayınla.
+7. Gerekirse demoyu nihai modelle yenile. Mevcut video sentetik demo içindir. Shadow/Canary/Progressive Rollout RELEASE.md'de **plan** durumundadır, uygulanmış trafik yönlendirmesi gibi anlatılmasın.
+8. Dört teslim bağlantısını tamamla: GitHub, commit'e sabit HF modeli, girişsiz uygulama, video. HF bağlantısı şu an eksik. Formu kullanıcı göndersin.
+
+## Sonraki oturumda başlama
+
+Önce bu dosyayı ve `git status` çıktısını oku; mevcut durumu sıfırdan kurma. Yerel bağımlılıklar kurulu ve model dosyaları mevcut.
+
+```powershell
+npm run dev
+```
+
+Kurulum eksik bir kopyadaysa `node scripts/setup.mjs` kullanılır. Oturum CSV'leri gelmediyse nihai eğitim/yayına geçilmez. Gerçek veri geldikten sonraki komutlar:
+
+```powershell
+.venv/Scripts/python.exe scripts/merge_csv.py private-data/oyun1.csv private-data/oyun2.csv
+.venv/Scripts/python.exe train.py
+```
+
+Yalnız yerel test gerektiğinde `node scripts/test_e2e.mjs` kendi test sunucusunu açıp kapanışta durdurur. Python kontrolleri ve yayın ayrıntıları README'de. `scripts/publication_status.py` mevcut public GitHub Actions durumunu okur; yeni depo oluşturmak için kullanılan `publish_github.py --push` mevcut depo üzerinde yeniden çalıştırılmaz.
