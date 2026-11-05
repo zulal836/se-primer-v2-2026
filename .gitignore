@@ -1,0 +1,12 @@
+node_modules/
+.venv/
+dist/
+cypress/screenshots/
+cypress/videos/
+__pycache__/
+*.log
+.env
+private-data/
+data/oturumlar.csv
+public/ort/
+cypress/downloads/

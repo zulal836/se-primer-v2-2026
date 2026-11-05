@@ -1,0 +1,11 @@
+# Vize tasarımı: bir düzeltme gerçekten güvenilir mi?
+
+**Klasik soru — 30 dakika, 100 puan.** Bir randevu uygulamasının v2 modeli oyuncuya kısa/ayrıntılı açıklama seçiyor. Python ONNX referans uygulaması 300 sabit girdide olasılık üretiyor. Web uygulaması bu girdilerin 299'unda en fazla 0.000002, birinde 0.00013 fark veriyor. Kabul sözleşmesi mutlak farkın 0.0001'den küçük olmasıdır. Yeni sürüm eski 20 E2E adımı geçiyor, 21. adımda “yeniden başlat” önceki oyuncunun seçeneklerini koruyor. Tüm ölçümler sentetik oturumlardan geliyor. Ürün sorumlusu “299/300 aynı ve doğruluk %95; herkese açalım” diyor.
+
+1. Diferansiyel testin iki tüketicisini ve oracle'ını belirtin. Tek aykırı girdide özellik sırası, float32 dönüşümü ve model sürümünü nasıl araştırırsınız? Sözleşmeye göre sonuç geçer mi? (25)
+2. Python referansı da aynı yanlış özellik sırasını kullanıyorsa parite neden yeterli değildir? Oracle'ın bağımsız doğruluğunu hangi küçük, elle denetlenebilir örnek ve sözleşme denetimiyle desteklersiniz? (20)
+3. 21. adım hatasını regresyon açısından açıklayın. Önceki 20 adımın geçmesi hangi iddiayı destekler, hangisini desteklemez? Yeniden başlatma için gözlemlenebilir bir kabul koşulu yazın. (20)
+4. Doğrulama ve geçerlemeyi ayırın. Sentetik test sonuçlarından gerçek oyuncu ihtiyacı hakkında ne çıkarılamaz? En az bir gerçek kullanıcı veri ve değerlendirme tasarımı önerin. (20)
+5. Shadow, %5 canary, %25→%50→%100 geçiş ve commit'e sabit geri alma için ölçülebilir durdurma koşulları önerin. (15)
+
+**Anahtar ve çeldiriciler.** 0.00013 > 0.0001 olduğundan kapı kalır; ortalama hata veya “yaklaşık aynı” gerekçesiyle tolerans sonradan değiştirilmez. Oracle Python'da aynı ONNX'i çalıştırır; parite modelin gerçek kullanıcı için yararlı olduğunu kanıtlamaz. Ortak hata iki tüketicide de bulunabilir. E2E eski davranışın korunmasını sınar, kapsamı dışındaki davranışa garanti vermez. Doğrulama sözleşmeye uygunluğu, geçerleme gerçek ihtiyaca uygunluğu sorar. Oturum bazlı ayrım, yeterli sınıf örnekleri, öz bildirim ve öğrenme etkisi arasındaki fark beklenir. Canary başarı ilanı değildir; hata ve parite ihlalinde önceki model+config çiftine dönülür. Yalnız tanım ezberleyen, olayla ilişki kurmayan yanıt yarım puanı aşamaz.

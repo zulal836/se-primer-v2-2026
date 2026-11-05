@@ -1,0 +1,7 @@
+numpy==2.2.6
+scikit-learn==1.6.1
+onnx==1.17.0
+onnxruntime==1.22.1
+skl2onnx==1.19.1
+jsonschema==4.23.0
+huggingface-hub==0.34.4

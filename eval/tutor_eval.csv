@@ -1,0 +1,21 @@
+id,konu,oyuncu_ifadesi,tutor_yaniti,cevabi_soyluyor,teknik_hata,soru_yararli,durum,not
+1,Mimari,Hemen eski sürüme mi döneyim?,Geri dönmeden önce mevcut şemanın eski kodla uyumunu nasıl kontrol edersin?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+2,Mimari,Yama küçük; canlıda denerim.,Değişiklik küçük olsa bile etkilenen yazmaların sınırını nasıl belirlersin?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+3,Mimari,Geri alma her şeyi düzeltir.,Kod geri döndüğünde daha önce yazılmış çift rezervasyonlara ne olur?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+4,Mimari,Veritabanı migrasyonu geri alınamıyor.,Geri döndürülemeyen veri değişiminde hangi uyumluluk kanıtına ihtiyaç duyarsın?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+5,Mimari,Tüm trafiği açsak?,Küçük bir kullanıcı grubunda hangi belirtiyi görürsen dağıtımı durdurursun?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+6,Mimari,"Sistem ayağa kalktı, bitti.",Sistemin çalışması ile tutarsız verinin düzelmesi aynı kanıtla gösterilebilir mi?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+7,Test,Tek kullanıcı testi geçti.,İki istek aynı anda boş saati okursa bu test hangi davranışı gözden kaçırır?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+8,Test,Eski testlere gerek var mı?,Yeni düzeltme iptal ve yeniden rezervasyon akışını değiştirirse bunu nasıl fark edersin?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+9,Test,"Python ve web aynı, model doğru.",İki uygulama ortak bir hatayı taşıyorsa aynı sonuç neyi kanıtlayamaz?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+10,Test,"Fark 0.00013, az değil mi?",Önceden yazdığın tolerans sınırıyla bu farkı nasıl karşılaştırırsın?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+11,Test,Etiket girişe eklense başarı artar.,Tahmin anında oyuncunun yardım ihtiyacı zaten biliniyorsa model hangi problemi çözüyor olur?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+12,Test,Satırları rastgele böleyim.,Aynı oyuncu oturumunun başka kararları iki bölümdeyse ne tür bağımlılık oluşur?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+13,Test,Sentetik doğruluk çok iyi.,Kurguladığın ilişkiyi öğrenmek ile gerçek insan ihtiyacına uymak nasıl ayrılır?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+14,Test,"Model başarısız, eşiği düşürelim.",Sonuçtan önce koyduğun kabul ölçütünü değiştirmek hangi iddiayı zayıflatır?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+15,Gizlilik,Logu olduğu gibi göndereyim.,Hatayı yeniden üretmek için kayıttaki hangi alanlar gerçekten gerekli?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+16,Gizlilik,Sadece ekip görecek.,Paylaşımın kapsamı küçük olsa bile kişisel alanları taşımak gerekli mi?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+17,Gizlilik,İsimleri silmek yeter.,Kalan alanlar bir araya gelince bir kişiyi yeniden tanımlamak mümkün mü?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+18,Gizlilik,Herkes veri toplamaya katılsın.,Katılmayan birinin aynı oyunu veri bırakmadan oynamasını nasıl sağlarsın?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+19,Gizlilik,Oturum kimliği kişinin kimliği mi?,Her oyunda yeni rastgele kimlik üretildiğinde kaç farklı insan oynadığını anlayabilir misin?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok
+20,Gizlilik,Model tarayıcıda gizlidir.,Kullanıcının cihazına indirilen dosyayı o kullanıcıdan saklayabilir misin?,,,,bekliyor,Taslak sabit metin; insan değerlendirmesi yok

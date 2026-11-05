@@ -1,0 +1,13 @@
+{
+  "identical": true,
+  "before": {
+    "model/model.onnx": "5a08f081cdf16ec82365879e2cad5479575481de0a3eb59e1313a1f8a1982938",
+    "model/config.json": "34e56b8aafcad402df7e1f85c7b93883ec6d45b5f75298e18eb1a363a067137c",
+    "tests/parite.json": "118eb6f37b80c26add83722ddb0213ddd706731ecda7e16cb64ad7dfe99c197c"
+  },
+  "after": {
+    "model/model.onnx": "5a08f081cdf16ec82365879e2cad5479575481de0a3eb59e1313a1f8a1982938",
+    "model/config.json": "34e56b8aafcad402df7e1f85c7b93883ec6d45b5f75298e18eb1a363a067137c",
+    "tests/parite.json": "118eb6f37b80c26add83722ddb0213ddd706731ecda7e16cb64ad7dfe99c197c"
+  }
+}

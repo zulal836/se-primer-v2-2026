@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "version",
+    "data_source",
+    "input_name",
+    "features",
+    "classes",
+    "metrics",
+    "thresholds",
+    "decision_threshold",
+    "split",
+    "model_sha256",
+    "data_sha256",
+    "publishable"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "version": { "type": "string" },
+    "data_source": { "enum": ["gerçek", "sentetik"] },
+    "input_name": { "const": "features" },
+    "features": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "prefixItems": [
+        {
+          "$ref": "#/$defs/feature",
+          "properties": {
+            "name": { "const": "bekleme_sn" },
+            "max": { "const": 300 }
+          }
+        },
+        {
+          "$ref": "#/$defs/feature",
+          "properties": {
+            "name": { "const": "degistirme_sayisi" },
+            "max": { "const": 20 }
+          }
+        },
+        {
+          "$ref": "#/$defs/feature",
+          "properties": {
+            "name": { "const": "ipucu_sayisi" },
+            "max": { "const": 10 }
+          }
+        }
+      ]
+    },
+    "classes": { "const": ["kisa", "ayrintili"] },
+    "metrics": {
+      "type": "object",
+      "required": [
+        "balanced_accuracy",
+        "recall_ayrintili",
+        "onnx_max_abs_diff"
+      ],
+      "properties": {
+        "balanced_accuracy": { "type": "number", "minimum": 0, "maximum": 1 },
+        "recall_ayrintili": { "type": "number", "minimum": 0, "maximum": 1 },
+        "onnx_max_abs_diff": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.0001
+        }
+      }
+    },
+    "thresholds": {
+      "const": {
+        "balanced_accuracy": 0.7,
+        "recall_ayrintili": 0.65,
+        "onnx_max_abs_diff": 0.0001
+      }
+    },
+    "decision_threshold": { "const": 0.5 },
+    "split": {
+      "type": "object",
+      "required": [
+        "seed",
+        "train_sessions",
+        "test_sessions",
+        "test_class_counts"
+      ],
+      "properties": {
+        "seed": { "const": 42 },
+        "train_sessions": { "type": "array", "items": { "type": "string" } },
+        "test_sessions": { "type": "array", "items": { "type": "string" } },
+        "test_class_counts": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": { "type": "integer", "minimum": 5 }
+        }
+      }
+    },
+    "model_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "data_sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "publishable": { "type": "boolean" }
+  },
+  "$defs": {
+    "feature": {
+      "type": "object",
+      "required": ["name", "dtype", "min", "max"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "dtype": { "const": "float32" },
+        "min": { "const": 0 },
+        "max": { "type": "number" }
+      }
+    }
+  }
+}

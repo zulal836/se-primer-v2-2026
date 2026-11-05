@@ -1,0 +1,20 @@
+{
+  "name": "se-primer-v2",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test:e2e": "cypress run --browser electron",
+    "test:base": "cypress run --browser electron --spec cypress/e2e/game.cy.js"
+  },
+  "dependencies": {
+    "onnxruntime-web": "1.23.2"
+  },
+  "devDependencies": {
+    "cypress": "^15.21.1",
+    "vite": "6.4.5"
+  }
+}
