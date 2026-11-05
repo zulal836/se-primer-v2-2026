@@ -4,6 +4,8 @@
 
 ## Uygulanan / bekleyen
 
+GitHub public proje deposu oluşturuldu: https://github.com/zulal836/se-primer-v2-2026 . İlk kaynak commit'i `869289e8fc2a7d3e5299d93f1671fc45b46943c9`; eğitim öncesi spec commit'i `5e9008e`. İlk Pages workflow koşusunda üçüncü taraf Cypress action'ının sunucu başlatma/bekleme adımı socket hatası verdi. Yerel sunucu başlatma ve hazır olma kontrolünü yapan `scripts/test_e2e.mjs` ile değiştirildi, Ubuntu 24.04 ortamı sabitlendi. Web yayın durumu aşağıda ayrıca doğrulanır.
+
 Model dosyasındaki `data_source=sentetik`, `publishable=false` geliştirme durumunu gösterir. Bu model gerçek veriyle eğitilmiş v2.0 diye yayımlanamaz. Gerçek oturum sayısı başlangıçta 0; insan tutor değerlendirmesi bekliyor. Nihai HF commit'i henüz yoktur. GitHub ve Pages yayın sonuçları doğrulandıktan sonra bu dosyaya gerçek bağlantılar eklenir; `publication.json` otomatik yayın makbuzudur. Bağlantı şablonları gerçek bağlantı diye sunulmaz.
 
 ## Mimari ödünleşim

@@ -1,6 +1,6 @@
 # 75 saniyelik demo akışı
 
-Gerçek tarayıcı kaydı oluşturuldu: `public/demo.mp4`. Cypress ile otomatik oynatılan iki davranışı gösterir; insan oturumu değildir ve gerçek veri sayılmaz. Test akışı 70.85 saniye sürdü. Seslendirme yoktur; açıklamalar uygulama ekranındadır. Nihai gerçek-veri modelinin demosu değildir; sentetik demo etiketi görünür. Aşağıdaki tablo çekim için başlangıç planıdır; gerçekleşen kayıtta aynı güvenli seçenek kısa ve ayrıntılı yardım koşullarında kullanılmıştır.
+Gerçek tarayıcı kaydı oluşturuldu: `public/demo.mp4`. MP4 süresi **73.040 saniye**, `python scripts/video_info.py` ile doğrulandı. Cypress ile otomatik oynatılan iki davranışı gösterir; insan oturumu değildir ve gerçek veri sayılmaz. Test akışı 70.85 saniye sürdü. Seslendirme yoktur; açıklamalar uygulama ekranındadır. Nihai gerçek-veri modelinin demosu değildir; sentetik demo etiketi görünür. Aşağıdaki tablo çekim için başlangıç planıdır; gerçekleşen kayıtta aynı güvenli seçenek kısa ve ayrıntılı yardım koşullarında kullanılmıştır.
 
 | Süre | Ekran / anlatım |
 |---|---|
