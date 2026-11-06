@@ -1,4 +1,23 @@
-# Devam notu — çalışma duraklatıldı
+# Devam notu — 6 Kasım 2026 gerçek veri denetimi
+
+## En güncel durum
+
+Kullanıcı çalışmayı sürdürdü ve `private-data/` altında üç gerçek CSV sağladı. Proje yeniden kurulmadı. `scripts/audit_real_data.py`, mevcut birleştiriciyi kullanarak 45 benzersiz kararı `data/oturumlar.csv` içine birleştirdi. Ham dosyalar/cevaplar değiştirilmedi. Kaynak CSV'ler arasında tekrar yok; yeniden çalıştırmada var olan 45 kayıt çift sayılmadı. Ham CSV'ler ve birleşik gerçek veri Git'ten hariç.
+
+- 16 farklı oturum: **14 tamamlanmış, 2 yarım**.
+- Tamamlanmış 42 karar: **4 kısa, 3 ayrıntılı, 35 eksik hedef**.
+- Bütün 45 karar: **4 kısa, 4 ayrıntılı, 37 eksik hedef**.
+- Yalnız beş tamamlanmış oturumda herhangi bir etiket var.
+- `train.py`, exit code 1 ile “en az 15 tamamlanmış gerçek oturum, bulunan 14” nedeniyle fit başlamadan durdu. Eşik/split/seed değiştirilmedi. Eğitim denemesinde model/config/oracle/demo hash'leri korunmuştu; model kartına sonradan bu durum notu eklendi.
+- HF girişi yok. Kullanıcının giriş komutu: `.venv/Scripts/hf.exe auth login`. Veri de yetersiz olduğundan nihai HF yayını, gerçek model manifesti ve nihai demo yenilemesi yapılmadı.
+- Veri raporu: `test-results/real-data-audit.json`; eğitim ret/artefakt makbuzu: `test-results/real-training-attempt.json`.
+- Önceki sentetik demo uygulaması ve 73.040 saniyelik video açık kalıyor. İnsan tutor etiketleri bekliyor.
+
+**En küçük sonraki adım:** eski boş yanıtları sonradan doldurmak yerine her üç kararda model yardımı görülmeden gerçek ihtiyacın seçildiği yeni, tamamlanmış gönüllü oturumlar toplanmalı. Etiketli oturum/test sınıf sayıları nedeniyle en az sekiz yeni tam etiketli oturum kuramsal alt sınırdır; sabit split ve doğal sınıf dağılımı daha fazla veri gerektirebilir. En az 15 tamamlanmış oturum, her sınıfta toplam en az 10 ve testte en az beş örnek; ardından BA>=0.70, recall>=0.65 kapısı korunacak. Sınıf elde etmek için insan yanıtlarını yönlendirme veya değiştirme.
+
+Aşağıdaki notlar önceki duraklatma kaydının tarihçesidir; “gerçek veri yok” ifadeleri o eski duruma aittir. Sonraki oturum en üstteki bu durumdan devam etmeli.
+
+## Önceki duraklatma kaydı
 
 6 Kasım 2026, Europe/Istanbul. Kullanıcı şimdilik ara verdi; bu dosya sonraki oturum için devir notudur.
 

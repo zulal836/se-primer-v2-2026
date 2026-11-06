@@ -1,5 +1,15 @@
 # Sürüm durumu ve dağıtım kararı
 
+## 6 Kasım 2026 gerçek veri kontrolü — nihai yayın yapılmadı
+
+Üç CSV, 45 benzersiz karar ve 16 farklı oturum içeriyor. Kaynak dosyalar arasında yinelenen oturum/karar yok; tekrar birleştirme mevcut 45 kararı çift saymadı. Tamamlanmış oturum sayısı **14**, yarım oturum sayısı **2**. Tamamlanmış 42 kararın hedefleri: kısa=4, ayrıntılı=3, eksik=35. Tüm 45 kararda kısa=4, ayrıntılı=4, eksik=37. Ham dosyalar ve insan yanıtları değişmedi; ham veriler Git'ten hariç.
+
+`train.py` exit code 1 ile, fit/split/model dönüşümü başlamadan durdu: “En az 15 tamamlanmış gerçek oturum gerekli; bulunan: 14”. Balanced accuracy/recall eşikleri, seed=42 ve oturum bazlı %25 split korundu. Yeni gerçek model veya gerçek eval metriği oluşmadı. Model/config/ONNX oracle/demo eğitim denemesinde korunmuştur; hash makbuzu `test-results/real-training-attempt.json` içindedir. Gerçek veriyle eğitim yapılmadığı için eğitim/test sızıntısı oluşmadı; ileride aynı oturumun iki gruba girmemesini mevcut kapı kontrol eder.
+
+HF oturumu yok; giriş komutu `.venv/Scripts/hf.exe auth login`. Veri koşulu da geçilmediğinden HF modeli yayımlanmadı, web manifesti değiştirilmedi ve nihai modelle yeni video çekilmiş gibi gösterilmedi. Mevcut Pages ve MP4 sentetik demo olarak kalıyor. Tutor insan değerlendirmeleri hâlâ bekliyor. Bu bölüm yeni model sürümü değil, veri denetimi ve korunmuş demo sürümünün durum kaydıdır.
+
+Sonraki veri adımı: her üç kararı yardım öncesinde dürüstçe etiketlenmiş yeni tamamlanmış oturumlar. Mevcut beş etiketli oturumla en az sekiz yeni tam etiketli oturum, split/test sınıf sayıları için yalnız kuramsal alt sınırdır; daha fazla veri gerekebilir. Eski boş etiketleri geriye dönük doldurmayın. README veri sayısı gerekçesini içerir.
+
 5 Kasım 2026 · v0.1.0-demo geliştirme adayı. Eski uygulama yoktu; temel oyun sıfırdan kuruldu. Üç karar, iki son, profil uyarlaması, gönüllü veri toplama ve yerel CSV eklendi. Davranış modeli gerçek ONNX dosyasıyla açıklama derinliğini seçer. Temel kural karşılaştırması ve yükleme hatasında yedek vardır.
 
 ## Uygulanan / bekleyen

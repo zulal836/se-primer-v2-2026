@@ -19,7 +19,11 @@ from scripts.generate_demo import COLUMNS
 class PipelineTests(unittest.TestCase):
     def test_real_data_empty_rejects_without_modifying_artifact(self):
         before=train.digest(ROOT/'model/model.onnx')
-        p=subprocess.run([sys.executable,str(ROOT/'train.py')],capture_output=True,text=True,encoding='utf-8')
+        with tempfile.TemporaryDirectory(dir=ROOT) as temp:
+            empty=Path(temp)/'empty.csv'
+            with empty.open('w',encoding='utf-8',newline='') as f:
+                csv.DictWriter(f,fieldnames=COLUMNS).writeheader()
+            p=subprocess.run([sys.executable,str(ROOT/'train.py'),'--data',str(empty)],capture_output=True,text=True,encoding='utf-8')
         self.assertNotEqual(p.returncode,0)
         self.assertIn('15',p.stderr)
         self.assertEqual(before,train.digest(ROOT/'model/model.onnx'))

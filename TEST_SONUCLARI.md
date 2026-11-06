@@ -1,5 +1,23 @@
 # Gerçekte çalıştırılan kontroller
 
+## 6 Kasım 2026 gerçek CSV denetimi ve eğitim kapısı
+
+Üç kaynak CSV: 45 satır, 45 benzersiz karar, kaynaklar arasında 0 tekrar. Mevcut birleşik dosyayla yeniden birleştirme 45 kaydı yeniden eklemedi. Ham dosya hash'leri değişmedi. 16 farklı oturumun 14'ü tamamlanmış, 2'si yarım. Tamamlanmış 42 kararda kısa=4, ayrıntılı=3, eksik=35; bütün 45 kararda kısa=4, ayrıntılı=4, eksik=37. Oturum kimlikleri ve ham satırlar public rapora yazılmadı.
+
+`python train.py` gerçek veriyle denendi: **exit code 1**, 15 tamamlanmış oturum koşulunda durdu (bulunan 14). Fit, split ve dönüşüm başlamadı; gerçek eval metriği yok. Eğitim sırasında önceki model/config/kart/oracle/demo dosyalarının hash'leri değişmedi. Model kartındaki sonraki durum notu ayrı belge güncellemesidir. `test-results/real-training-attempt.json` ölçülen önce/sonra hash'lerini saklar. Eğitim eşiği, random_state ve değerlendirme yöntemi değiştirilmedi.
+
+Boş gerçek veri testinin artık kullanıcının gerçek dosyasına bağlı olmaması için test, yalnız geçici başlık içeren CSV ile gerçek `train.py --data` komutunu çalıştıracak şekilde düzeltildi. Boş veriyi reddetme ve artefakt koruma beklentileri korundu. Yeni gerçek model üretilmediği için aşağıdaki tekrar kontrolleri önceki sentetik artefakt içindir; gerçek model başarısı olarak okunmamalıdır.
+
+| Bu oturumda yeniden çalıştırılan kontrol | Sonuç |
+|---|---|
+| Python unittest | 6/6 geçti |
+| Python ONNX oracle | 5/5 referans, <1e-4 tolerans geçti |
+| Gerçek tarayıcı ONNX + oyun regresyonu | 15/15 Cypress testi geçti, yaklaşık 24 sn |
+| Üretim build'i `--base=./` | Vite 6.4.5 ile başarılı |
+| Gerçek veriyle eğitim ön koşulu | Beklendiği gibi ret; model üretilmedi |
+
+### Önceki doğrulanmış sürümün tarihçesi
+
 5 Kasım 2026, Windows 11 · Node 24.20.0 · Python 3.12.10 · Cypress 15.21.1 / Electron 138. Model verisi yalnız sentetik; gerçek oturumlar 0. İnsan tutor incelemesi yapılmadı.
 
 | Kontrol | Gerçek sonuç |

@@ -4,7 +4,7 @@
 
 Türkçe, telefona uyumlu üç kararlı yazılım mühendisliği oyunu. Çift rezervasyon olayında sürüm geri alma, eşzamanlılık testi ve kişisel veriyi koruma ele alınır. Üç profil sorusu anlatımı uyarlar. Kural modu ile gerçek ONNX kullanan davranış modeli karşılaştırılabilir. Sunucu, kullanıcı hesabı veya ücretli API gerekmez.
 
-**Durum:** gerçek katılımcı verisi henüz yok. Model, açıkça işaretlenmiş sentetik geliştirme demosudur. Nihai gerçek-veri değerlendirmesi, HF yayını ve insan tutor değerlendirmesi bekler. 73 saniyelik gerçek tarayıcı demo kaydı `public/demo.mp4` içinde hazırdır; otomatik oynatılmıştır, insan oturumu değildir. Güncel test sonuçları `TEST_SONUCLARI.md`, yayın durumu `RELEASE.md` içindedir.
+**Durum — 6 Kasım 2026:** üç gerçek CSV birleştirildi: 45 benzersiz karar, 14 tamamlanmış ve 2 yarım oturum. Tamamlanmış 42 kararda 4 kısa, 3 ayrıntılı etiket ve 35 eksik yanıt var. Mevcut `train.py`, en az 15 tamamlanmış oturum koşulunda eğitim başlamadan durdu. Gerçek model metrikleri yoktur; eşikler ve split yöntemi değiştirilmedi. Arayüz ve 73 saniyelik video hâlâ açıkça işaretlenmiş sentetik geliştirme demosudur. Nihai HF modeli/video yenilemesi ve insan tutor değerlendirmesi tamamlanmadı. Rapor: `test-results/real-data-audit.json`, `test-results/real-training-attempt.json`.
 
 ## Başlangıç: en fazla üç komut (Windows PowerShell)
 
@@ -30,7 +30,9 @@ En az **15 tamamlanmış gerçek oturum** toplayın (ör. üç gönüllü × be�
 .venv/Scripts/python.exe train.py
 ```
 
-Eğitim varsayılan olarak yalnız `data/oturumlar.csv` gerçek verisini okur. Başlangıç dosyası boş; gerçek kayıt uydurulmamıştır. Veri sözlüğü, saklama/silme ve birleştirme ayrıntıları `data/SOZLUK.md` içindedir. Kimlik ya da hasta verisi toplamayın. Toplanan gerçek CSV'yi public depoya göndermeyin.
+Eğitim varsayılan olarak yalnız `data/oturumlar.csv` gerçek verisini okur. Başlangıç dosyası boştu; şimdi yalnız kullanıcının sağladığı CSV'lerden birleştirilen gerçek kayıtları içeriyor ve Git'ten hariç tutuluyor. Ham dosyalar ve cevaplar değiştirilmedi. `python scripts/audit_real_data.py` CSV'leri doğrular ve aynı oturum/kararı çift saymadan mevcut birleştiriciyle birleştirir. Public raporda yalnız toplamlar bulunur. Veri sözlüğü, saklama/silme ve birleştirme ayrıntıları `data/SOZLUK.md` içindedir. Kimlik ya da hasta verisi toplamayın. Toplanan gerçek CSV'yi public depoya göndermeyin.
+
+**En küçük sonraki veri adımı:** eski boş cevapları tahmin ederek veya model sonucunu gördükten sonra doldurmayın. Yeni oyunlarda gönüllü katılımı açın ve her kararda model yardımından önce gerçek kısa/ayrıntılı ihtiyacınızı seçip üç kararı bitirin. Şu an yalnız beş tamamlanmış oturumda herhangi bir hedef etiketi var. Her test sınıfında en az beş örnek gerektiğinden testte en az dört oturum gerekir; sabit %25 GroupShuffleSplit için en az 13 etiketli oturum gerekir. Bu nedenle **en az sekiz yeni, üç kararı da etiketlenmiş oturum** kuramsal alt sınırdır. Sabit split ve doğal sınıf dağılımı daha fazla veri gerektirebilir. Yanıtları istenen sınıfa yönlendirmeyin; her toplam sınıfta en az 10 etiket ve testte her sınıfta en az beş örnek sağlanmalıdır. Modelin eval eşiğini geçeceği garanti değildir.
 
 ## Eğitim ve sözleşme
 
@@ -96,5 +98,5 @@ Teslim için dört gerçek bağlantı: GitHub reposu, commit'e sabit HF modeli, 
 1. OpenAI Codex; oyun, spec ve veri toplama akışının ilk sürümünü oluşturdu.
 2. Codex; eğitim, ONNX, yayın betikleri ve testleri yazıp komutlarla doğruladı; gerçek sonuçlar test raporunda yer alır.
 3. Codex; belgeler, tutor değerlendirme taslağı ve demo planını hazırladı. Tutor metinleri üretim sırasında LLM ile oluşturulmaz.
-4. Kullanıcıya yapılmamış manuel düzeltme, insan değerlendirmesi veya gerçek oturum katkısı atfedilmemiştir. Gerçek veri ve insan incelemesi beklemektedir.
+4. Gerçek CSV'leri kullanıcı sağladı; Codex bunları denetleyip çift saymadan birleştirdi. İnsan yanıtları değiştirilmedi. Yeterli yeni etiketli oturumlar ve tutor insan incelemesi beklemektedir.
 

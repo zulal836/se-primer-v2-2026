@@ -5,6 +5,8 @@ tags: [onnx, education, tabular-classification]
 ---
 # Son Boş Randevu model kartı
 
+**6 Kasım 2026 durum notu:** Kullanıcının sağladığı gerçek CSV'ler denetlendi, ancak 14 tamamlanmış oturum bulunduğu için gerçek eğitim kapısı geçilmedi. Tamamlanmış kararlarda yalnız 4 kısa/3 ayrıntılı etiket var; 35 hedef yanıtı eksik. Bu karttaki model ve aşağıdaki metrikler önceki **sentetik** modele aittir. Gerçek veriler bu modeli eğitmek için kullanılmadı; yeni gerçek model veya HF sürümü yayımlanmadı.
+
 Amaç: üç davranış girdisinden kısa/ayrıntılı açıklama seçmek; klinik karar veya öğrenci notu değildir.
 
 Sürüm: 0.1.0-demo. Kaynak: **sentetik**. SENTETİK DEMO: gerçek insan ihtiyacıyla doğrulanmamıştır; nihai yayına uygun değildir.

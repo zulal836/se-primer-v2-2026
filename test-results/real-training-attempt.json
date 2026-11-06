@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-06",
+  "command": "python train.py",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "Eğitim durduruldu: En az 15 tamamlanmış gerçek oturum gerekli; bulunan: 14",
+  "artifacts_unchanged": true,
+  "before": {
+    "model/model.onnx": "5a08f081cdf16ec82365879e2cad5479575481de0a3eb59e1313a1f8a1982938",
+    "model/config.json": "34e56b8aafcad402df7e1f85c7b93883ec6d45b5f75298e18eb1a363a067137c",
+    "model/README.md": "c4fabd8a8502cb123ffe861052bdb31829e469c0590b98afc0dab2f7c6163fd1",
+    "public/model/model.onnx": "5a08f081cdf16ec82365879e2cad5479575481de0a3eb59e1313a1f8a1982938",
+    "public/model/config.json": "34e56b8aafcad402df7e1f85c7b93883ec6d45b5f75298e18eb1a363a067137c",
+    "public/model/source.json": "bd0480874a3e28557e3c3318691f94eefe9e0433d27fa30d033a25cddfa19c20",
+    "tests/parite.json": "118eb6f37b80c26add83722ddb0213ddd706731ecda7e16cb64ad7dfe99c197c",
+    "public/demo.mp4": "9a6055f7aa9be64658a486e660485a60544b7c17e61ad6f3dc8efba0d9cd53f2"
+  },
+  "after": {
+    "model/model.onnx": "5a08f081cdf16ec82365879e2cad5479575481de0a3eb59e1313a1f8a1982938",
+    "model/config.json": "34e56b8aafcad402df7e1f85c7b93883ec6d45b5f75298e18eb1a363a067137c",
+    "model/README.md": "c4fabd8a8502cb123ffe861052bdb31829e469c0590b98afc0dab2f7c6163fd1",
+    "public/model/model.onnx": "5a08f081cdf16ec82365879e2cad5479575481de0a3eb59e1313a1f8a1982938",
+    "public/model/config.json": "34e56b8aafcad402df7e1f85c7b93883ec6d45b5f75298e18eb1a363a067137c",
+    "public/model/source.json": "bd0480874a3e28557e3c3318691f94eefe9e0433d27fa30d033a25cddfa19c20",
+    "tests/parite.json": "118eb6f37b80c26add83722ddb0213ddd706731ecda7e16cb64ad7dfe99c197c",
+    "public/demo.mp4": "9a6055f7aa9be64658a486e660485a60544b7c17e61ad6f3dc8efba0d9cd53f2"
+  }
+}
