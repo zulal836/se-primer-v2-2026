@@ -2,6 +2,18 @@
 
 ## En güncel durum
 
+**primer-guncel.csv dahil edildi — veri kapısı geçti, model eval kapısında kaldı.** Beş CSV 123 satır içeriyor; kaynaklar arasındaki 24 tekrar ayıklanınca 99 benzersiz karar kaldı. Yeni dosya 30 yeni karar/10 tamamlanmış oturum ekledi; önceki kayıtlar çift sayılmadı. 34 farklı oturumun 32'si tamamlanmış, 2'si yarım. Ham dosyalar/cevaplar değişmedi, Git'ten hariç tutuldu.
+
+- Tamamlanmış 96 karar: **28 kısa, 21 ayrıntılı, 47 boş**. Eğitimde kullanılabilir **49 etiket**, herhangi bir etiketi olan 23 tamamlanmış oturum var. Tüm 99 kararda 28 kısa/22 ayrıntılı/49 boş; yarım oturumdaki bir etiket ve boşlar eğitim dışında.
+- Mevcut GroupShuffleSplit(seed=42, test_size=.25): eğitim 17 oturum/38 etiket (23 kısa/15 ayrıntılı); test 6 oturum/11 etiket (5 kısa/6 ayrıntılı); kesişim 0. Bütün veri sayısı koşulları sağlandı.
+- Gerçek `train.py` eğitimi çalıştı, **balanced accuracy=0.50, ayrıntılı recall=0.00**. Confusion matrix (satır gerçek, sütun tahmin; kısa/ayrıntılı): `[[5,0],[6,0]]`. Kabul eşikleri BA>=0.70, recall>=0.65 değişmedi. Exit code 1: eval kapısı geçilemedi.
+- ONNX/config/model kartı/oracle/manifest/video eğitim çalışmasında korunmuştu; mevcut ONNX hâlâ sentetik sürümdür. Model kartına sonraki durum notu belge değişikliğidir. HF gerçek model yayını ve nihai demo yenilemesi yapılmadı.
+- Tanısal bulgu: 49 kullanılabilir kararın **tamamında seçenek değiştirme=0**, yalnız **4 kararda ipucu sayısı>0**; süre aralığı yaklaşık 1.417–18.973 sn. Bu özelliklerdeki davranış çeşitliliği sınırlı. İnsanları belli sınıfı veya davranışı üretmeye yönlendirme; etiketleri/seed'i/eşiği değiştirip geçirmeye çalışma.
+- Sonraki veri adımı: doğal farklı oyuncu ve ihtiyaçların gözlendiği yeni gerçek, yardım öncesi etiketli tam oturumlar. Daha fazla veri başarı garantisi değildir. Özellik/model tasarımı değişecekse mevcut test bölümünde tekrar tekrar ayarlamak yerine yeni bir önceden tanımlanmış değerlendirme ve bağımsız yeni holdout gerekir.
+- Güncel makbuzlar `test-results/real-data-audit.json`, `real-training-attempt.json`, `real-split-readiness.json`. Yeni uygulama/model olmadığı için eski regresyonları yeniden çalışmış gibi yazma. Eski yayın ve 73 sn sentetik demo açık kalır.
+
+## Önceki dördüncü CSV denetimi
+
 **primer-oturumlar3.csv dahil edildi:** dört CSV'deki 69 satır, 69 benzersiz karar içeriyor; kaynaklar arasında tekrar yok. Önceden birleştirilen 45 karar yeniden eklenmedi; yeni dosya 24 karar/8 tamamlanmış oturum ekledi. 24 farklı oturumun 22'si tamamlanmış, 2'si yarım. Ham dosyalar ve insan cevapları değişmedi, Git'ten hariç kalıyor.
 
 - Tamamlanmış 66 karar: **11 kısa, 8 ayrıntılı, 47 boş**. Kullanılabilir hedef sayısı **19**, etiketli tamamlanmış oturum sayısı **13**.

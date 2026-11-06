@@ -4,7 +4,7 @@
 
 Türkçe, telefona uyumlu üç kararlı yazılım mühendisliği oyunu. Çift rezervasyon olayında sürüm geri alma, eşzamanlılık testi ve kişisel veriyi koruma ele alınır. Üç profil sorusu anlatımı uyarlar. Kural modu ile gerçek ONNX kullanan davranış modeli karşılaştırılabilir. Sunucu, kullanıcı hesabı veya ücretli API gerekmez.
 
-**Durum — 6 Kasım 2026, dördüncü CSV sonrası:** 69 benzersiz karar, 22 tamamlanmış ve 2 yarım oturum var. Tamamlanmış 66 karardan yalnız 19 etiket kullanılabilir: 11 kısa, 8 ayrıntılı; 47 boş etiket eğitim dışında. Oturum sayısı koşulu geçti, fakat her sınıfta en az 10 etiket koşulu geçilmedi. Mevcut `train.py` fit başlamadan durdu. Aynı seed=42 ve %25 oturum split'inin ayrı tanısal kontrolünde testte 6 kısa/1 ayrıntılı bulundu; her sınıfta en az beş koşulu da eksik. Gerçek model veya metriği oluşturulmadı. Uygulama ve video önceki sentetik demodur. Raporlar: `test-results/real-data-audit.json`, `test-results/real-training-attempt.json`, `test-results/real-split-readiness.json`.
+**Durum — 6 Kasım 2026, güncel CSV sonrası:** beş kaynak dosyadaki 123 satır, tekrarlar çıkarılınca 99 benzersiz karardır. 32 tamamlanmış ve 2 yarım oturum var. Tamamlanmış kararlarda 49 etiket kullanılabilir: 28 kısa/21 ayrıntılı; 47 boş hedef eğitim dışında. Veri kapısı geçti ve mevcut model gerçek veriyle eğitildi, fakat eval kapısında durdu: **balanced accuracy=0.50 (<0.70), ayrıntılı recall=0.00 (<0.65)**. Testteki altı ayrıntılı ihtiyacın tamamına kısa tahmini verdi. Yeni ONNX/config/referans üretimi ve yayın yapılmadı; önceki sentetik uygulama ve video korundu. Eşikler/split/seed değiştirilmedi. Güncel raporlar `test-results/real-data-audit.json`, `real-training-attempt.json`, `real-split-readiness.json` içinde.
 
 ## Başlangıç: en fazla üç komut (Windows PowerShell)
 
@@ -32,7 +32,7 @@ En az **15 tamamlanmış gerçek oturum** toplayın (ör. üç gönüllü × be�
 
 Eğitim varsayılan olarak yalnız `data/oturumlar.csv` gerçek verisini okur. Başlangıç dosyası boştu; şimdi yalnız kullanıcının sağladığı CSV'lerden birleştirilen gerçek kayıtları içeriyor ve Git'ten hariç tutuluyor. Ham dosyalar ve cevaplar değiştirilmedi. `python scripts/audit_real_data.py` CSV'leri doğrular ve aynı oturum/kararı çift saymadan mevcut birleştiriciyle birleştirir. Public raporda yalnız toplamlar bulunur. Veri sözlüğü, saklama/silme ve birleştirme ayrıntıları `data/SOZLUK.md` içindedir. Kimlik ya da hasta verisi toplamayın. Toplanan gerçek CSV'yi public depoya göndermeyin.
 
-**Sonraki veri adımı:** Oturum sayısı yeterli. Kullanılabilir toplam sınıflar 11 kısa/8 ayrıntılı; ayrıntılı sınıfta en az 10 için iki etiket eksik. Mevcut sabit test bölümünde 6 kısa/1 ayrıntılı var; burada ayrıntılı sınıfta en az beş için dört eksik. Yeni veri split seçimini değiştireceğinden yalnız iki ek etiket yeterlilik garantisi vermez. Yeni tamamlanmış oyunlarda her üç kararda model yardımından önce gerçek kısa/ayrıntılı ihtiyacınızı seçin. Eski boşları geriye dönük doldurmayın ve sınıf elde etmek için yanıtları yönlendirmeyin. Eşikler ve değerlendirme yöntemi korunacak.
+**Sonraki adım:** Veri sayısı ve test sınıfı koşulları artık yeterli; eksik olan modelin gerçek performansıdır. Gereken BA>=0.70 ve ayrıntılı recall>=0.65, ölçülen 0.50/0.00. Kullanılabilir 49 kararın tamamında seçenek değiştirme sıfır, yalnız dört kararda ipucu sinyali var. Doğal farklı davranış ve yardım ihtiyaçları olan yeni gönüllü oyunculardan, her kararda yardım öncesi gerçek ihtiyaç etiketiyle veri toplanabilir. Cevapları veya davranışı sınıf elde etmek için yönlendirmeyin; daha fazla veri başarı garantisi değildir. Model/özellik tasarımı değiştirilecekse mevcut holdout üzerinde tekrar tekrar ayar yapmak yerine önceden tanımlanmış yeni değerlendirme ve bağımsız yeni veri gerekir.
 
 ## Eğitim ve sözleşme
 
@@ -99,5 +99,6 @@ Teslim için dört gerçek bağlantı: GitHub reposu, commit'e sabit HF modeli, 
 2. Codex; eğitim, ONNX, yayın betikleri ve testleri yazıp komutlarla doğruladı; gerçek sonuçlar test raporunda yer alır.
 3. Codex; belgeler, tutor değerlendirme taslağı ve demo planını hazırladı. Tutor metinleri üretim sırasında LLM ile oluşturulmaz.
 4. Gerçek CSV'leri kullanıcı sağladı; Codex bunları denetleyip çift saymadan birleştirdi. İnsan yanıtları değiştirilmedi. Yeterli yeni etiketli oturumlar ve tutor insan incelemesi beklemektedir.
+
 
 

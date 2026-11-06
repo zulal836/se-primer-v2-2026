@@ -5,7 +5,7 @@ tags: [onnx, education, tabular-classification]
 ---
 # Son Boş Randevu model kartı
 
-**6 Kasım 2026, dördüncü CSV sonrası:** 22 tamamlanmış gerçek oturum var. Boş hedefler ve yarım oturumlar eğitim dışında tutulunca 11 kısa/8 ayrıntılı olmak üzere 19 etiket kullanılabiliyor; toplam sınıf başına en az 10 koşulu geçilmedi. Ayrı tanısal seed=42/%25 split kontrolünde test sınıfları 6 kısa/1 ayrıntılı; gerekli en az beşer örnek sağlanmıyor. Gerçek `train.py` fit başlamadan durdu. Bu karttaki model ve metrikler önceki **sentetik** modele aittir; yeni gerçek model veya HF sürümü yoktur.
+**6 Kasım 2026, güncel CSV sonrası:** 32 tamamlanmış gerçek oturumdan 49 etiket kullanılabildi (28 kısa/21 ayrıntılı); boş hedefler ve yarım oturumlar hariç tutuldu. Mevcut `train.py` gerçek veriyle eğitildi. Sabit oturum holdout'unda BA=0.50, ayrıntılı recall=0.00 bulundu; gereken 0.70/0.65 eşikleri geçilmedi. Aday model dışa aktarılmadan durduruldu. **Bu dosyanın eşlik ettiği ONNX modeli ve aşağıdaki metrikler önceki sentetik sürüme aittir.** Başarısız gerçek aday bu dosyanın modeli değildir; yeni gerçek ONNX veya HF sürümü yayımlanmadı.
 
 Amaç: üç davranış girdisinden kısa/ayrıntılı açıklama seçmek; klinik karar veya öğrenci notu değildir.
 

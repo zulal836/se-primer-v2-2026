@@ -1,15 +1,37 @@
 {
-  "diagnostic_only_no_model_fit": true,
-  "labeled_decisions": 19,
-  "train_sessions": 9,
-  "test_sessions": 4,
+  "diagnostic_only_no_new_artifact": true,
+  "seed": 42,
+  "test_size": 0.25,
+  "labeled_decisions": 49,
+  "train_sessions": 17,
+  "test_sessions": 6,
   "train_class_counts": [
-    5,
-    7
+    23,
+    15
   ],
   "test_class_counts": [
-    6,
-    1
+    5,
+    6
   ],
-  "overlapping_sessions": 0
+  "overlapping_sessions": 0,
+  "feature_summary": {
+    "bekleme_sn": {
+      "min": 1.4170000553131104,
+      "max": 18.972999572753906,
+      "nonzero_count": 49,
+      "distinct_values": 49
+    },
+    "degistirme_sayisi": {
+      "min": 0.0,
+      "max": 0.0,
+      "nonzero_count": 0,
+      "distinct_values": 1
+    },
+    "ipucu_sayisi": {
+      "min": 0.0,
+      "max": 1.0,
+      "nonzero_count": 4,
+      "distinct_values": 2
+    }
+  }
 }

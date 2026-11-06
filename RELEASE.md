@@ -1,5 +1,13 @@
 # Sürüm durumu ve dağıtım kararı
 
+## Güncel CSV sonrası — gerçek aday eğitildi, eval kapısında reddedildi
+
+6 Kasım 2026: beş CSV, 123 kaynak satırı, 24 yinelenen kaynak kaydı; birleşik veri 99 benzersiz karar. Yeni dosya 10 tamamlanmış oturum ve 30 yeni karar ekledi. Toplam 32 tamamlanmış/2 yarım oturum var. Tamamlanmış 96 karardan 49 etiket kullanılabilir (28 kısa/21 ayrıntılı); 47 boş hedef eğitim dışında. Ham dosyalar ve cevaplar korunmuştur.
+
+Sabit seed=42 ve %25 oturum split'iyle gerçek eğitim çalıştı: eğitim 17 oturum (23 kısa/15 ayrıntılı), test 6 oturum (5 kısa/6 ayrıntılı), oturum kesişimi 0. Veri koşulları geçti. Adayın **BA=0.50**, **ayrıntılı recall=0.00**; önceden belirlenen >=0.70 ve >=0.65 eşikleri geçilemedi. Confusion matrix `[[5,0],[6,0]]`: tüm test kararlarına kısa tahmini. `train.py` exit code 1 ile, ONNX dışa aktarma ve paket güncellemesinden önce durdu. Eşik, model seçimi veya seed sonuç geçsin diye değiştirilmedi.
+
+Yeni gerçek ONNX/config, HF yayını, manifest değişikliği veya nihai demo yenilemesi yapılmadı. Mevcut sentetik model ve video korunuyor. Bu belge güncel başarısız adayın kaydıdır; yeni model sürümü değildir. Tanısal olarak kullanılabilir 49 satırda seçenek değiştirme sinyali hep sıfır, ipucu sinyali yalnız dört kararda sıfırdan farklıdır. Daha çeşitli doğal insan davranışlarıyla yeni bağımsız veri gerekir; başarı garanti edilemez. Aşağıdaki bölümler önceki denetimlerin tarihçesidir.
+
 ## Dördüncü CSV sonrası — gerçek model kapısı hâlâ geçilmedi
 
 6 Kasım 2026: `primer-oturumlar3.csv`, 24 yeni karar/8 tamamlanmış oturum ekledi. Dört kaynakta 69 benzersiz karar, 22 tamamlanmış ve 2 yarım oturum var; kaynaklar arasında tekrar yok. Tekrar birleştirmede eski 45 karar çift sayılmadı. Tamamlanmış 66 karardan boş hedefler çıkarılınca **19** kullanılabilir yanıt kalıyor: kısa=11, ayrıntılı=8. Boş tamamlanmış hedef sayısı 47; yarım oturumdaki bir etiket de eğitim dışında.

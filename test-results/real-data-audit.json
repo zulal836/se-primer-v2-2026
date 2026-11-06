@@ -1,34 +1,34 @@
 {
   "date": "2026-11-06",
   "source": "gerçek",
-  "input_csv_count": 4,
-  "input_rows": 69,
-  "unique_decisions": 69,
-  "duplicate_rows_within_input_csvs": 0,
-  "duplicate_rows_not_counted_again": 45,
+  "input_csv_count": 5,
+  "input_rows": 123,
+  "unique_decisions": 99,
+  "duplicate_rows_within_input_csvs": 24,
+  "duplicate_rows_not_counted_again": 93,
   "completion_snapshot_differences": 0,
-  "unique_sessions": 24,
-  "completed_unique_sessions": 22,
+  "unique_sessions": 34,
+  "completed_unique_sessions": 32,
   "incomplete_unique_sessions": 2,
   "all_unique_decisions_labels": {
-    "kisa_0": 11,
-    "ayrintili_1": 9,
+    "kisa_0": 28,
+    "ayrintili_1": 22,
     "eksik": 49
   },
-  "completed_decisions": 66,
-  "completed_sessions_with_any_label": 13,
+  "completed_decisions": 96,
+  "completed_sessions_with_any_label": 23,
   "completed_sessions_by_label_count": {
     "0": 9,
     "1": 8,
     "2": 4,
-    "3": 1
+    "3": 11
   },
   "completed_decisions_labels": {
-    "kisa_0": 11,
-    "ayrintili_1": 8,
+    "kisa_0": 28,
+    "ayrintili_1": 21,
     "eksik": 47
   },
   "raw_inputs_unchanged": true,
-  "merged_sha256": "0ff2405e11853997752385e413f129fdc24da1fa54838cabe49050ea9d29fd02",
+  "merged_sha256": "0a122bc7ce0b9b3a8d173cdd822ab07c2086f244f3d576214c948bce586598a5",
   "raw_data_is_public": false
 }

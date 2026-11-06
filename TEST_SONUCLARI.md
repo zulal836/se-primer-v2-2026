@@ -1,5 +1,15 @@
 # Gerçekte çalıştırılan kontroller
 
+## Güncel CSV sonrası gerçek eğitim ve eval sonucu
+
+Beş CSV yeniden denetlendi/birleştirildi: 123 kaynak satırında 24 tekrar, **99 benzersiz karar**, 32 tamamlanmış/2 yarım oturum. Yeni dosyadan 30 yeni karar geldi. Ham dosya hash'leri değişmedi. Tamamlanmış kararlarda 49 kullanılabilir etiket (28 kısa/21 ayrıntılı), 47 boş hedef var. Yarım oturumdaki etiketler ve boş hedefler eğitim dışında tutuldu.
+
+`python train.py` gerçekten çalıştırıldı. Oturum bazlı sabit split: eğitim 17 oturum/38 karar (23 kısa/15 ayrıntılı), test 6 oturum/11 karar (5 kısa/6 ayrıntılı), kesişen oturum 0. Veri sayısı koşulları geçti. **Balanced accuracy 0.50**, **ayrıntılı recall 0.00**, confusion matrix `[[5,0],[6,0]]`. Gerçek eğitim sonucu önceden belirlenen 0.70 ve 0.65 eşiklerinin altında kaldı; betik exit code 1 ile durdu. Aynı test bölümünü geçene kadar model/seed/eşik ayarlanmadı.
+
+Artefakt koruması gerçek önce/sonra SHA-256 karşılaştırmasıyla doğrulandı: model, config, model kartı, public kopyalar, manifest, Python oracle ve demo eğitim tarafından değiştirilmedi. Model kartına güncel durum notu sonradan belge değişikliği olarak eklendi. Kabul kapısında durulduğundan yeni gerçek ONNX, sklearn–ONNX/parite sonucu, yeni regresyon koşusu veya yayın yapılmış gibi gösterilmez. Eski ONNX/sentetik test sonuçları aşağıdaki tarihçededir.
+
+Tanı: kullanılabilir 49 kararda seçenek değiştirme sayısı hep 0; ipucu sayısı yalnız dört kararda >0. Süre aralığı yaklaşık 1.417–18.973 sn. Bu, model başarısının kanıtı değil, sonraki veri tasarımına yönelik gözlemdir. Güncel sayısal raporlar `test-results/real-data-audit.json`, `real-training-attempt.json`, `real-split-readiness.json` içinde.
+
 ## primer-oturumlar3.csv sonrası güncel veri kapısı
 
 Dört CSV denetlendi ve birleştirildi: 69 benzersiz karar, kaynaklar arasında 0 tekrar. Eski 45 kayıt yeniden sayılmadı. 22 tamamlanmış/2 yarım oturum var. Tamamlanmış 66 kararda hedefler 11 kısa, 8 ayrıntılı, 47 boş; **19 etiket kullanılabilir**. Tüm kararlarda 11 kısa, 9 ayrıntılı, 49 boş. Ham dosya hash'leri değişmedi.
