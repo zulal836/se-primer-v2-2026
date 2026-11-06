@@ -10,6 +10,8 @@ Demo geri alma: `public/model/source.json` eski Git sürümündeki `local-demo` 
 
 HF web entegrasyonu kaynak commit'i `37cf42be75e2d3ec17bdd12c5c5841147d5a9991`, [başarılı Pages koşusu 42287731950](https://github.com/zulal836/se-primer-v2-2026/actions/runs/42287731950). 15 yerel ve 15 bulut tarayıcı testi, 15 Python testi, beş Python ONNX referansı, build ve 2 girişsiz canlı test geçti. Canlı manifest, HF repo/commit ve model/config'in sentetik durumu anonim doğrulandı. `publication.json` ve `release-demo.json` gerçek yayın makbuzlarıdır.
 
+Son makbuz/belge kaydı da normal push ile yayımlandı: `2fad9376ac16d8a7ef10f805a7436e62f55707ff`, [koşu 42288555958](https://github.com/zulal836/se-primer-v2-2026/actions/runs/42288555958) test/build/deploy başarılı. Uygulama/model/video dosyaları önceki canlı doğrulamayla aynı; güncel yayın makbuzu `publication.json` içindedir.
+
 ## Son teslim durumu — eğitim içi seçim sonrası kapı yine geçilmedi
 
 Teslim kaynak commit'i `1fd3e31615e56d153d64fd5ea81d2fd79ec8d6da` normal push ile gönderildi. [Koşu 42281454788](https://github.com/zulal836/se-primer-v2-2026/actions/runs/42281454788): 15 tarayıcı testi, build ve Pages deploy başarılı. Son girişsiz canlı kontrolde 2/2 test geçti (yaklaşık 65 sn); mevcut sentetik ONNX, oyun akışı ve MP4 doğrulandı. Yeni gerçek model yayımlanmış değildir. Kaynak ve test raporları GitHub'da günceldir.
