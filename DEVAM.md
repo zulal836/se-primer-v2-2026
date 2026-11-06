@@ -2,6 +2,12 @@
 
 ## En güncel durum
 
+**Kullanıcı son isteği: mevcut sentetik demoyu ayrı public HF deposuna açık etiketle yayınla; yeni gerçek eğitim/veri toplama yok.** `scripts/publish_demo.py` hazırdır. Ön kontrol sentetik `version=0.1.0-demo`, `data_source=sentetik`, `publishable=false`, model/config/public hash'leri ve açık kart başlığını doğrular. `--push` yalnız kendi hesabında adında demo geçen yeni public repo açar, model/config/kart/şemayı tek commit'te yükler, anonim SHA doğrulaması sonrası manifesti sabit commit'e yazar. `release-demo.json` gerçek commit makbuzudur. Gerçek yayın komutu ve kabul eşikleri değiştirilmedi.
+
+Son kontrolde HF girişi yoktu. Kullanıcı “girişte yardıma ihtiyacım var” dedi; token sayfası ve `.venv\Scripts\hf.exe auth login` adımları verildi, hangi aşamada takıldığını soran yanıt bekleniyor. Token sohbette istenmez. Yetkili giriş tamamlandığını bildirmeden tekrar tekrar hesap kontrolü/yayın denenmez. Diğer hazırlıklar: 12 Python testi, 5 Python ONNX referansı ve build geçti. `scripts/verify_public.py` artık gerçek aktif manifestin HF commit'inden dosyayı doğrular. HF erişimi açılırsa yükle, ardından parite/regresyon/build, normal push/Pages/canlı HF kaynak kontrolü ve TESLIM/README linklerini tamamla. Mevcut video/model/config değişmediği için yeniden video çekilmez.
+
+## Önceki son karşılaştırma ve teslim kaydı
+
 **Teslim için son karşılaştırma tamamlandı; yeni veri beklenmeden mevcut dosyalar toparlandı.** Kullanıcı iki adayı yalnız eğitim içi oturum CV ile seçmeyi, sonra tek adayı sabit testte değerlendirmeyi istedi. `MODEL_SECIMI.md` protokolü önce `edb0a9e` commit'inde sabitlendi. Etiket/sınıf sırası doğru bulundu; CV/test kararı web/spec ile aynı p>=0.5 yapıldı (eşitlikte sklearn predict farkı giderildi).
 
 Son teslim kaynak yayını `1fd3e31615e56d153d64fd5ea81d2fd79ec8d6da`; koşu 42281454788 test/build/deploy başarılı. Yerelde 9 Python, 15 Cypress, 5 Python ONNX referansı ve build geçti; ayrıca 2/2 girişsiz canlı test geçti. Mevcut model sentetik olarak kaldı. Son bağlantı ve form metni `TESLIM.md`; 20 tutor değerlendirmesi engel değildir. Bu noktadan tekrar test adayı seçilmemeli; rapor tek son karşılaştırmadır.

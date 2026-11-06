@@ -3,7 +3,9 @@ license: mit
 library_name: sklearn
 tags: [onnx, education, tabular-classification]
 ---
-# Son Boş Randevu model kartı
+# SENTETİK GELİŞTİRME DEMOSU — Son Boş Randevu
+
+Bu depo/paket yalnız **0.1.0-demo sentetik geliştirme modelidir**. Aşağıdaki sentetik eval sonuçları gerçek kullanıcı başarımı değildir. `config.json` içindeki `publishable=false`, nihai **gerçek model** kabul durumunu korur. Ayrı `scripts/publish_demo.py` komutu yalnız kullanıcının açıkça yetkilendirdiği demo barındırmasını yapar; `scripts/publish_model.py` gerçek model kapısı değişmeden durur. Başarısız gerçek aday bu dosyanın modeli değildir.
 
 **Son teslim notu:** yalnız dış eğitimde 5 katlı oturum CV ile ağırlıklı lojistik (BA=0.470) ve küçük ağaç (BA=0.413) karşılaştırıldı. Seçilen lojistik sabit testte bir kez BA=0.25/ayrıntılı recall=0.50 verdi; 0.70/0.65 kapısı geçilmedi. Bu başarısız gerçek aday bu ONNX dosyasının modeli değildir. Aşağıdaki yayımlanmış artefakt ve sayısal sonuçlar **sentetik demo** içindir. Nihai gerçek model/HF yayını yoktur. Karşılaştırma raporu `test-results/final-model-selection.json` dosyasındadır.
 

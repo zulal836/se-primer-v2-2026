@@ -66,6 +66,19 @@ Tutor sabit Sokratik metinlerden oluşur, LLM çıktısı diye sunulmaz. `eval/t
 
 ## Yayın
 
+### Sentetik geliştirme demosu için ayrı HF komutu
+
+Kullanıcı son teslimde **mevcut 0.1.0-demo sentetik modelin**, açıkça demo etiketiyle ayrı public HF deposuna yüklenmesini ayrıca yetkilendirdi. Bu, gerçek model kabulü değildir. `publishable=false`, gerçek model kapısı ve config'teki sentetik metrikler değiştirilmez. Sadece model/kart/config/şema yüklenir; ham oyuncu verisi yüklenmez.
+
+```powershell
+.venv/Scripts/hf.exe auth login
+.venv/Scripts/python.exe scripts/publish_demo.py --push
+```
+
+`publish_demo.py` yalnız sentetik 0.1.0-demo kabul eder; yeni `kullanıcı/se-primer-v2-synthetic-demo` deposuna dosyaları tek commit'te yükler, anonim indirmelerin hash'lerini doğrular, web manifestini tam commit'e sabitler ve `release-demo.json` makbuzunu yazar. Yeni gerçek model eğitimi yapmaz. Mevcut video aynı ONNX SHA-256'yı gösterdiğinden yeniden çekilmez. HF demo bağlantısı oluştuğunda TESLIM.md'de **HF DEMO** olarak listelenir; gerçek modelin BA=0.25/recall=0.50 sonucu ve kabul edilmediği bilgisi korunur.
+
+### Nihai gerçek model için ayrı ve değişmeyen kapı
+
 Hesap erişimiyle yeni GitHub public reposu oluşturup bu klasörü main dalına gönderin; Settings → Pages → GitHub Actions seçin. `.github/workflows/pages.yml` gerçek Cypress testlerinden sonra ücretsiz Pages yayını yapar. Ortak dizin altında çalışabilmesi için build `--base=./` kullanır. Repo kurulumu otomasyonu `scripts/publish_github.py` içindedir.
 
 Gerçek veri modeli kapıyı geçtikten sonra:
