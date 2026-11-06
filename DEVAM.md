@@ -2,6 +2,18 @@
 
 ## En güncel durum
 
+**primer-oturumlar3.csv dahil edildi:** dört CSV'deki 69 satır, 69 benzersiz karar içeriyor; kaynaklar arasında tekrar yok. Önceden birleştirilen 45 karar yeniden eklenmedi; yeni dosya 24 karar/8 tamamlanmış oturum ekledi. 24 farklı oturumun 22'si tamamlanmış, 2'si yarım. Ham dosyalar ve insan cevapları değişmedi, Git'ten hariç kalıyor.
+
+- Tamamlanmış 66 karar: **11 kısa, 8 ayrıntılı, 47 boş**. Kullanılabilir hedef sayısı **19**, etiketli tamamlanmış oturum sayısı **13**.
+- Bütün 69 karar: 11 kısa, 9 ayrıntılı, 49 boş. Yarım oturumdaki bir ayrıntılı etiket ve boş hedefler eğitimde kullanılmaz.
+- `train.py` exit code 1: **her sınıfta en az 10 etiket** koşulunda fit başlamadan durdu. Ayrıntılı sınıfta 8 var (en az 2 eksik). Oturum sayısı 22>=15 koşulu artık geçti.
+- Aynı GroupShuffleSplit(test_size=.25, random_state=42) ayrı tanısal kontrolde: eğitim 9 oturum, sınıflar 5/7; test 4 oturum, sınıflar **6/1**. Testte her sınıfta en az beş gerekiyor; ayrıntılı test sınıfında 4 eksik. Oturum kesişimi 0. Bu tanı model eğitimi veya eval metriği değildir.
+- Yeni veri split'i değiştirebilir; yalnız iki ek ayrıntılı etiket yeterlilik garantisi vermez. Her üç kararda yardım öncesi gerçek ihtiyacın seçildiği yeni tamamlanmış oturumlar gerekir. Eski boşları doldurma, yanıtları sınıf elde etmek için yönlendirme, seed/eşik değiştirme.
+- Model/config/ONNX oracle/demo eğitim denemesinde değişmedi. Model kartına güncel durum notu ayrı belge değişikliği olarak eklendi. Gerçek model/HF yayını/nihai demo yok; önceki sentetik Pages yayını korunuyor.
+- Raporlar: `test-results/real-data-audit.json`, `test-results/real-training-attempt.json`, `test-results/real-split-readiness.json`. Sonraki denetimde aynı script/kapı kullanılmalı.
+
+## Önceki üç CSV denetimi
+
 Kullanıcı çalışmayı sürdürdü ve `private-data/` altında üç gerçek CSV sağladı. Proje yeniden kurulmadı. `scripts/audit_real_data.py`, mevcut birleştiriciyi kullanarak 45 benzersiz kararı `data/oturumlar.csv` içine birleştirdi. Ham dosyalar/cevaplar değiştirilmedi. Kaynak CSV'ler arasında tekrar yok; yeniden çalıştırmada var olan 45 kayıt çift sayılmadı. Ham CSV'ler ve birleşik gerçek veri Git'ten hariç.
 
 - 16 farklı oturum: **14 tamamlanmış, 2 yarım**.

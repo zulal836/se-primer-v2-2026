@@ -1,5 +1,13 @@
 # Sürüm durumu ve dağıtım kararı
 
+## Dördüncü CSV sonrası — gerçek model kapısı hâlâ geçilmedi
+
+6 Kasım 2026: `primer-oturumlar3.csv`, 24 yeni karar/8 tamamlanmış oturum ekledi. Dört kaynakta 69 benzersiz karar, 22 tamamlanmış ve 2 yarım oturum var; kaynaklar arasında tekrar yok. Tekrar birleştirmede eski 45 karar çift sayılmadı. Tamamlanmış 66 karardan boş hedefler çıkarılınca **19** kullanılabilir yanıt kalıyor: kısa=11, ayrıntılı=8. Boş tamamlanmış hedef sayısı 47; yarım oturumdaki bir etiket de eğitim dışında.
+
+Mevcut `train.py`, her sınıfta en az 10 etiket koşulunda exit code 1 ile fit başlamadan durdu. Aynı seed=42, %25 GroupShuffleSplit ile yapılan bağımsız tanısal kontrolde eğitim sınıfları 5/7, test sınıfları **6/1** bulundu; testte her sınıfta en az beş koşulu da sağlanmıyor. Kesişen oturum yok. Yeni model/metrik üretilmedi; kabul eşikleri ve değerlendirme yöntemi değiştirilmedi. Yeni veri split'i yeniden belirlediği için sadece iki ek etiketin yeterli olacağı söylenemez.
+
+Model, config, manifest, referanslar ve video eğitim denemesinde korunmuştur; yeni gerçek model yayını ve nihai video yapılmadı. Ham CSV'ler private kalır. Güncel makbuzlar `test-results/real-*.json` dosyalarındadır. Aşağıdaki üç CSV sonuçları önceki denetimin tarihçesidir.
+
 ## 6 Kasım 2026 gerçek veri kontrolü — nihai yayın yapılmadı
 
 Denetim ve belge güncellemesi normal commit/push ile gönderildi: `b0ce348a6c6724edfe59501a3f3d16b0ad65a91a`. [GitHub Actions koşusu 42272543090](https://github.com/zulal836/se-primer-v2-2026/actions/runs/42272543090) 15 tarayıcı testi, üretim build'i ve Pages dağıtımıyla başarılı tamamlandı. Canlı uygulama ayrıca girişsiz Cypress oturumunda 2/2 test geçti (yaklaşık 13 sn): önceki ONNX artefaktı referanslarla eşleşti, oyun sonu ve MP4 erişimi doğrulandı. Model/config/source manifest ve video hâlâ önceki sentetik sürümdür.

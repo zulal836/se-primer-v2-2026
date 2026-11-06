@@ -1,5 +1,15 @@
 # Gerçekte çalıştırılan kontroller
 
+## primer-oturumlar3.csv sonrası güncel veri kapısı
+
+Dört CSV denetlendi ve birleştirildi: 69 benzersiz karar, kaynaklar arasında 0 tekrar. Eski 45 kayıt yeniden sayılmadı. 22 tamamlanmış/2 yarım oturum var. Tamamlanmış 66 kararda hedefler 11 kısa, 8 ayrıntılı, 47 boş; **19 etiket kullanılabilir**. Tüm kararlarda 11 kısa, 9 ayrıntılı, 49 boş. Ham dosya hash'leri değişmedi.
+
+Gerçek `train.py` exit code 1: “Her sınıfta en az 10 etiketli karar gerekli”. Fit başlamadı; gerçek eval metriği yok. Model/config/manifest/oracle/demo dosyaları eğitim denemesinde aynı hash'leri korudu. Model kartına sonraki belge notu ayrı değişikliktir.
+
+Eğitim yapmayan ayrı split tanısı aynı `GroupShuffleSplit(n_splits=1,test_size=.25,random_state=42)` ile çalıştırıldı. Boş hedefler ve tamamlanmamış oturumlar önce çıkarıldı. Eğitim: 9 oturum, 12 etiket (5 kısa/7 ayrıntılı); test: 4 oturum, 7 etiket (6 kısa/1 ayrıntılı); kesişim 0 oturum. Testte ayrıntılı sınıfta en az beşe karşı yalnız bir örnek var. Bu, ölçülmüş bir model performansı değildir.
+
+Bu veri güncellemesinde uygulama kodu/model değişmediğinden önceki regresyonları yeniden çalıştırılmış gibi raporlamıyoruz. Yeni gerçek model/parite, HF yayını ve nihai video bu veri kapısına bağlı olarak bekliyor. Güncel raporlar `real-data-audit.json`, `real-training-attempt.json`, `real-split-readiness.json` altında; aşağıdaki test koşuları önceki oturumlara aittir.
+
 ## 6 Kasım 2026 gerçek CSV denetimi ve eğitim kapısı
 
 Üç kaynak CSV: 45 satır, 45 benzersiz karar, kaynaklar arasında 0 tekrar. Mevcut birleşik dosyayla yeniden birleştirme 45 kaydı yeniden eklemedi. Ham dosya hash'leri değişmedi. 16 farklı oturumun 14'ü tamamlanmış, 2'si yarım. Tamamlanmış 42 kararda kısa=4, ayrıntılı=3, eksik=35; bütün 45 kararda kısa=4, ayrıntılı=4, eksik=37. Oturum kimlikleri ve ham satırlar public rapora yazılmadı.

@@ -1,0 +1,15 @@
+{
+  "diagnostic_only_no_model_fit": true,
+  "labeled_decisions": 19,
+  "train_sessions": 9,
+  "test_sessions": 4,
+  "train_class_counts": [
+    5,
+    7
+  ],
+  "test_class_counts": [
+    6,
+    1
+  ],
+  "overlapping_sessions": 0
+}
