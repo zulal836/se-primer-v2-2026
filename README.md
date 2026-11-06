@@ -90,7 +90,7 @@ Gerçek veri modeli kapıyı geçtikten sonra:
 .venv/Scripts/python.exe scripts/publish_model.py KULLANICI/YENI_PRIMER_MODEL --push
 ```
 
-Betik mevcut depoları değiştirmez; yeni public HF reposu açar, model+config aynı commit'te yüklenir, indirilen içerikler doğrulanır. Manifestte 40 haneli commit sabitlenir; web değişken main URL'sini kullanmaz. Demo yerelde paketlenmiş dosyayı kullanır. Model indirme başarısızsa durum görünür ve kural yedeği oyunu sürdürür. HF sonrası parite/build çalıştırıp yeni web sürümünü yayınlayın. Rollout ve geri alma `RELEASE.md` içindedir.
+Betik mevcut depoları değiştirmez; yeni public HF reposu açar, model+config aynı commit'te yüklenir, indirilen içerikler doğrulanır. Manifestte 40 haneli commit sabitlenir; web değişken main URL'sini kullanmaz. Mevcut sentetik demo artık sabit HF commit kaynağından indiriliyor; yerel paket aynı dosyanın kopyasını içerir. Model indirme başarısızsa durum görünür ve kural yedeği oyunu sürdürür. HF sonrası parite/build çalıştırıp yeni web sürümünü yayınlayın. Rollout ve geri alma `RELEASE.md` içindedir.
 
 Teslim için dört gerçek bağlantı: GitHub reposu, commit'e sabit HF modeli, girişsiz uygulama, 60–90 sn demo video. Form kullanıcı tarafından gönderilir.
 
@@ -114,6 +114,7 @@ Teslim için dört gerçek bağlantı: GitHub reposu, commit'e sabit HF modeli, 
 2. Codex; eğitim, ONNX, yayın betikleri ve testleri yazıp komutlarla doğruladı; gerçek sonuçlar test raporunda yer alır.
 3. Codex; belgeler, tutor değerlendirme taslağı ve demo planını hazırladı. Tutor metinleri üretim sırasında LLM ile oluşturulmaz.
 4. Gerçek CSV'leri kullanıcı sağladı; Codex bunları denetleyip çift saymadan birleştirdi. İnsan yanıtları değiştirilmedi. Yeterli yeni etiketli oturumlar ve tutor insan incelemesi beklemektedir.
+
 
 
 

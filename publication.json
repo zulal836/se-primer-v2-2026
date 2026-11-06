@@ -2,9 +2,15 @@
   "github": "https://github.com/zulal836/se-primer-v2-2026",
   "app": "https://zulal836.github.io/se-primer-v2-2026/",
   "demo": "https://zulal836.github.io/se-primer-v2-2026/demo.mp4",
-  "deployed_source_commit": "1fd3e31615e56d153d64fd5ea81d2fd79ec8d6da",
-  "workflow": "https://github.com/zulal836/se-primer-v2-2026/actions/runs/42281454788",
-  "status": "Submission package deployed; 15 cloud browser tests and 2 anonymous live browser tests passed; training-only CV winner failed fixed real holdout gate (balanced accuracy 0.25, recall 0.50); active model remains synthetic demo",
+  "deployed_source_commit": "37cf42be75e2d3ec17bdd12c5c5841147d5a9991",
+  "workflow": "https://github.com/zulal836/se-primer-v2-2026/actions/runs/42287731950",
+  "status": "Pinned Hugging Face SYNTHETIC DEMO deployed; 15 Python tests, 15 local and cloud browser tests, 5 Python references and 2 anonymous live HF-source browser tests passed; real model gate still failed (balanced accuracy 0.25, recall 0.50)",
   "model_source": "sentetik",
-  "hugging_face": null
+  "hugging_face": "https://huggingface.co/zulalertrk/se-primer-v2-synthetic-demo/resolve/d79adb407da3be479d77fe4a909b932bc1b77a8a/model.onnx",
+  "hf_repo": "zulalertrk/se-primer-v2-synthetic-demo",
+  "hf_commit": "d79adb407da3be479d77fe4a909b932bc1b77a8a",
+  "hf_publication_kind": "SENTETİK GELİŞTİRME DEMOSU",
+  "config_publishable": false,
+  "final_real_model_accepted": false,
+  "existing_video_preserved": true
 }

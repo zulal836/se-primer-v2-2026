@@ -4,5 +4,12 @@
   "demo": "https://zulal836.github.io/se-primer-v2-2026/demo.mp4",
   "demo_http": 200,
   "model_sha256": "5a08f081cdf16ec82365879e2cad5479575481de0a3eb59e1313a1f8a1982938",
-  "no_auth_headers_sent": true
+  "no_auth_headers_sent": true,
+  "model_source_manifest": {
+    "repo": "zulalertrk/se-primer-v2-synthetic-demo",
+    "commit": "d79adb407da3be479d77fe4a909b932bc1b77a8a",
+    "mode": "hf-pinned-synthetic-demo"
+  },
+  "config_publishable": false,
+  "model_data_source": "sentetik"
 }

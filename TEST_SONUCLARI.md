@@ -6,6 +6,8 @@
 
 Bu yayında **15/15 Python unittest**, beş Python ONNX referansı ve üretim build'i geçti. Sabit HF manifestiyle **15/15 yerel Cypress testi** yaklaşık 26 saniyede geçti; tarayıcı HF commit'inden gerçek ONNX/config indirdi, model dosyası hash'ini Python referansına karşı denetledi ve beş olasılıkta <1e-4 pariteyi doğruladı. Bu testler sentetik demo dosyasına aittir; gerçek kullanıcı başarımı iddiası yoktur. Mevcut video aynı dosyayı gösterdiğinden yeniden çekilmedi.
 
+HF entegrasyonu `37cf42be75e2d3ec17bdd12c5c5841147d5a9991` kaynak commit'iyle normal push edildi. [Koşu 42287731950](https://github.com/zulal836/se-primer-v2-2026/actions/runs/42287731950) 15 tarayıcı testi, build ve Pages deploy ile başarılı. Yayın sonrasında **2/2 girişsiz canlı test** yaklaşık 49 saniyede geçti: canlı manifestteki repo/commit `release-demo.json` ile eşleşti; HF config sentetik/publishable=false; indirilen ONNX SHA'sı aynı; Python referansları, oyun sonu ve public MP4 doğrulandı. `test-results/public-http.json` anonim HTTP 200 ve aktif HF manifestini, `hf-demo-checks.json` dosya bütünlüğünü saklar. Maksimum ölçülen tarayıcı/Python farkı `1.1920928955e-7`.
+
 ## Teslim için son eğitim karşılaştırması
 
 Son bulut koşusu 42281454788, kaynak `1fd3e31`: 15 Cypress testi/build/Pages deploy başarılı. Ayrıca bu oturumda 2/2 girişsiz canlı test yaklaşık 65 saniyede geçti: mevcut sentetik ONNX'in beş referansı, oyun sonu ve herkese açık MP4. Bu sonuçlar gerçek adayın başarısız kabul sonucunu değiştirmez.
