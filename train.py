@@ -66,14 +66,26 @@ def run(args):
         raise ValueError('Oturum sızıntısı')
     if min(np.bincount(y[test], minlength=2)) < 5 or len(set(y[train])) != 2:
         raise ValueError('Sabit split sınıf sayıları yetersiz; daha fazla gerçek veri toplayın')
-    model = make_pipeline(StandardScaler(), LogisticRegression(random_state=42, max_iter=1000))
-    model.fit(x[train],y[train])
-    pred = model.predict(x[test])
+    selection_report=None
+    if getattr(args,'compare',False):
+        if args.demo:
+            raise ValueError('Son karşılaştırma yalnız gerçek veri içindir')
+        from scripts.select_candidate import select
+        model,selection_report=select(x[train],y[train],groups[train],ROOT/'test-results/final-model-selection.json',digest(data))
+    else:
+        model = make_pipeline(StandardScaler(), LogisticRegression(random_state=42, max_iter=1000))
+        model.fit(x[train],y[train])
+    assert model.classes_.tolist()==[0,1], 'Sınıf sırası uyuşmazlığı'
+    pred = (model.predict_proba(x[test])[:,1] >= .5).astype(int)
     metrics = {'balanced_accuracy':float(balanced_accuracy_score(y[test],pred)), 'recall_ayrintili':float(recall_score(y[test],pred)), 'confusion_matrix':confusion_matrix(y[test],pred).tolist()}
+    if selection_report is not None:
+        selection_report.update(test_evaluations=1,test_metrics=metrics,train_sessions=len(set(groups[train])),test_sessions=len(set(groups[test])),train_class_counts=np.bincount(y[train],minlength=2).tolist(),test_class_counts=np.bincount(y[test],minlength=2).tolist(),outer_session_overlap=0,gate_passed=metrics['balanced_accuracy']>=.70 and metrics['recall_ayrintili']>=.65)
+        (ROOT/'test-results/final-model-selection.json').write_text(json.dumps(selection_report,indent=2,ensure_ascii=False),encoding='utf-8')
     print(json.dumps(metrics, indent=2))
     if metrics['balanced_accuracy'] < .70 or metrics['recall_ayrintili'] < .65:
         raise ValueError('Eval kapısı geçilemedi; mevcut artefaktlar korunuyor')
-    onnx = convert_sklearn(model, name='primer_help_v1', initial_types=[('features',FloatTensorType([None,3]))], options={id(model[-1]):{'zipmap':False}}, target_opset=17)
+    classifier=model[-1] if hasattr(model,'steps') else model
+    onnx = convert_sklearn(model, name='primer_help_v1', initial_types=[('features',FloatTensorType([None,3]))], options={id(classifier):{'zipmap':False}}, target_opset=17)
     with tempfile.TemporaryDirectory(dir=ROOT) as temp:
         stage = Path(temp)
         (stage/'model.onnx').write_bytes(onnx.SerializeToString())
@@ -124,6 +136,7 @@ if __name__ == '__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--demo',action='store_true')
     parser.add_argument('--data',type=Path)
+    parser.add_argument('--compare',action='store_true',help='Yalnız eğitim oturumlarında önceden sabitlenmiş iki aday CV seçimi')
     args=parser.parse_args()
     try:
         run(args)
