@@ -15,6 +15,8 @@ Boş gerçek veri testinin artık kullanıcının gerçek dosyasına bağlı olm
 | Gerçek tarayıcı ONNX + oyun regresyonu | 15/15 Cypress testi geçti, yaklaşık 24 sn |
 | Üretim build'i `--base=./` | Vite 6.4.5 ile başarılı |
 | Gerçek veriyle eğitim ön koşulu | Beklendiği gibi ret; model üretilmedi |
+| Bulut regresyonu / Pages | Koşu 42272543090: 15 test, build, deploy başarılı |
+| Canlı uygulama, girişsiz yeni tarayıcı | 2/2 geçti, yaklaşık 13 sn; gerçek ONNX referansları, oyun sonu, MP4 |
 
 ### Önceki doğrulanmış sürümün tarihçesi
 

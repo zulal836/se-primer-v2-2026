@@ -12,6 +12,8 @@ Kullanıcı çalışmayı sürdürdü ve `private-data/` altında üç gerçek C
 - HF girişi yok. Kullanıcının giriş komutu: `.venv/Scripts/hf.exe auth login`. Veri de yetersiz olduğundan nihai HF yayını, gerçek model manifesti ve nihai demo yenilemesi yapılmadı.
 - Veri raporu: `test-results/real-data-audit.json`; eğitim ret/artefakt makbuzu: `test-results/real-training-attempt.json`.
 - Önceki sentetik demo uygulaması ve 73.040 saniyelik video açık kalıyor. İnsan tutor etiketleri bekliyor.
+- Bu oturumda 6 Python testi, 5 Python ONNX referansı, 15 yerel Cypress testi ve üretim build'i geçti. Bulutta 15 test/build/Pages dağıtımı da geçti; canlı sitede 2 girişsiz test yaklaşık 13 saniyede geçti. Yeni gerçek model değil, korunmuş sentetik artefakt doğrulandı.
+- Son yayımlanan kaynak commit'i `b0ce348a6c6724edfe59501a3f3d16b0ad65a91a`; başarılı koşu https://github.com/zulal836/se-primer-v2-2026/actions/runs/42272543090 . Aşağıdaki eski commit bilgileri önceki yayınların tarihçesidir. `publication.json` günceldir.
 
 **En küçük sonraki adım:** eski boş yanıtları sonradan doldurmak yerine her üç kararda model yardımı görülmeden gerçek ihtiyacın seçildiği yeni, tamamlanmış gönüllü oturumlar toplanmalı. Etiketli oturum/test sınıf sayıları nedeniyle en az sekiz yeni tam etiketli oturum kuramsal alt sınırdır; sabit split ve doğal sınıf dağılımı daha fazla veri gerektirebilir. En az 15 tamamlanmış oturum, her sınıfta toplam en az 10 ve testte en az beş örnek; ardından BA>=0.70, recall>=0.65 kapısı korunacak. Sınıf elde etmek için insan yanıtlarını yönlendirme veya değiştirme.
 

@@ -2,9 +2,9 @@
   "github": "https://github.com/zulal836/se-primer-v2-2026",
   "app": "https://zulal836.github.io/se-primer-v2-2026/",
   "demo": "https://zulal836.github.io/se-primer-v2-2026/demo.mp4",
-  "deployed_source_commit": "ebb2b9126714e54e1d26839e652657a903bff246",
-  "workflow": "https://github.com/zulal836/se-primer-v2-2026/actions/runs/42100198789",
-  "status": "Pages deployed; anonymous HTTP checks and 2 live browser tests passed",
+  "deployed_source_commit": "b0ce348a6c6724edfe59501a3f3d16b0ad65a91a",
+  "workflow": "https://github.com/zulal836/se-primer-v2-2026/actions/runs/42272543090",
+  "status": "Pages audit update deployed; 15 cloud browser tests and 2 anonymous live browser tests passed; real training rejected for insufficient data",
   "model_source": "sentetik",
   "hugging_face": null
 }

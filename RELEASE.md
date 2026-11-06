@@ -2,6 +2,8 @@
 
 ## 6 Kasım 2026 gerçek veri kontrolü — nihai yayın yapılmadı
 
+Denetim ve belge güncellemesi normal commit/push ile gönderildi: `b0ce348a6c6724edfe59501a3f3d16b0ad65a91a`. [GitHub Actions koşusu 42272543090](https://github.com/zulal836/se-primer-v2-2026/actions/runs/42272543090) 15 tarayıcı testi, üretim build'i ve Pages dağıtımıyla başarılı tamamlandı. Canlı uygulama ayrıca girişsiz Cypress oturumunda 2/2 test geçti (yaklaşık 13 sn): önceki ONNX artefaktı referanslarla eşleşti, oyun sonu ve MP4 erişimi doğrulandı. Model/config/source manifest ve video hâlâ önceki sentetik sürümdür.
+
 Üç CSV, 45 benzersiz karar ve 16 farklı oturum içeriyor. Kaynak dosyalar arasında yinelenen oturum/karar yok; tekrar birleştirme mevcut 45 kararı çift saymadı. Tamamlanmış oturum sayısı **14**, yarım oturum sayısı **2**. Tamamlanmış 42 kararın hedefleri: kısa=4, ayrıntılı=3, eksik=35. Tüm 45 kararda kısa=4, ayrıntılı=4, eksik=37. Ham dosyalar ve insan yanıtları değişmedi; ham veriler Git'ten hariç.
 
 `train.py` exit code 1 ile, fit/split/model dönüşümü başlamadan durdu: “En az 15 tamamlanmış gerçek oturum gerekli; bulunan: 14”. Balanced accuracy/recall eşikleri, seed=42 ve oturum bazlı %25 split korundu. Yeni gerçek model veya gerçek eval metriği oluşmadı. Model/config/ONNX oracle/demo eğitim denemesinde korunmuştur; hash makbuzu `test-results/real-training-attempt.json` içindedir. Gerçek veriyle eğitim yapılmadığı için eğitim/test sızıntısı oluşmadı; ileride aynı oturumun iki gruba girmemesini mevcut kapı kontrol eder.
