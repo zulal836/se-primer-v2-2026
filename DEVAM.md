@@ -4,6 +4,8 @@
 
 **Teslim için son karşılaştırma tamamlandı; yeni veri beklenmeden mevcut dosyalar toparlandı.** Kullanıcı iki adayı yalnız eğitim içi oturum CV ile seçmeyi, sonra tek adayı sabit testte değerlendirmeyi istedi. `MODEL_SECIMI.md` protokolü önce `edb0a9e` commit'inde sabitlendi. Etiket/sınıf sırası doğru bulundu; CV/test kararı web/spec ile aynı p>=0.5 yapıldı (eşitlikte sklearn predict farkı giderildi).
 
+Son teslim kaynak yayını `1fd3e31615e56d153d64fd5ea81d2fd79ec8d6da`; koşu 42281454788 test/build/deploy başarılı. Yerelde 9 Python, 15 Cypress, 5 Python ONNX referansı ve build geçti; ayrıca 2/2 girişsiz canlı test geçti. Mevcut model sentetik olarak kaldı. Son bağlantı ve form metni `TESLIM.md`; 20 tutor değerlendirmesi engel değildir. Bu noktadan tekrar test adayı seçilmemeli; rapor tek son karşılaştırmadır.
+
 - 5 katlı StratifiedGroupKFold(seed=42), yalnız dış eğitim: ağırlıklı lojistik CV BA=0.47, küçük ağaç CV BA=0.413333. CV recall her ikisinde 0.50. Lojistik seçildi.
 - Seçilen lojistik sabit dış testte **bir kez**: BA=0.25, ayrıntılı recall=0.50, confusion matrix `[[0,5],[3,3]]`. Kabul 0.70/0.65 geçilmedi. Teste göre başka adaya geçilmedi. Aynı veri/protokol ikinci çalıştırması reddedilir; `train.py --compare` tekrar çalıştırılmamalı, kayıtlı rapor kullanılmalı.
 - Mevcut test daha önce temel modelde görüldü; hiç görülmemiş bağımsız test iddiası yok. Eşikler, seed, dış test ve insan cevapları değişmedi.

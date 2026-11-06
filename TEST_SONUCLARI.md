@@ -2,6 +2,8 @@
 
 ## Teslim için son eğitim karşılaştırması
 
+Son bulut koşusu 42281454788, kaynak `1fd3e31`: 15 Cypress testi/build/Pages deploy başarılı. Ayrıca bu oturumda 2/2 girişsiz canlı test yaklaşık 65 saniyede geçti: mevcut sentetik ONNX'in beş referansı, oyun sonu ve herkese açık MP4. Bu sonuçlar gerçek adayın başarısız kabul sonucunu değiştirmez.
+
 `MODEL_SECIMI.md`, karşılaştırma çalıştırılmadan önce `edb0a9e` commit'inde sabitlendi. Önce etiket/girdi akışı incelendi: UI/CSV `0=kısa`, `1=ayrıntılı`; boş hedefler eğitim dışında; özellikler yalnız süre/değiştirme/ipucu. `secim` veya ihtiyaç etiketi özelliklere girmez. sklearn sınıf sırası `[0,1]`, ONNX/Python/web ikinci sütunu p(ayrıntılı) olarak kullanır. Veri sınıflarında terslik bulunmadı. Sınır durumu düzeltildi: sklearn `predict` eşit olasılıkta ilk sınıfı seçebildiğinden CV/test kararı da web/spec gibi açık `p>=0.5` kullanıyor; eşik değişmedi.
 
 Yalnız dış eğitim verisinde beş katlı StratifiedGroupKFold(seed=42) ile iki sabit aday karşılaştırıldı. Katlar arasında oturum sızıntısı 0; StandardScaler her eğitim katında fit edilir.

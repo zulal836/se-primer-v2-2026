@@ -21,6 +21,6 @@ Uygulama ve video açıkça etiketlenmiş **sentetik geliştirme demosunu** gös
 
 ## İnceleme için dosyalar
 
-Son doğrulamalar: 9 Python testi, 15 Cypress testi, beş Python ONNX referansı ve üretim build'i geçti. Parite ve oyun testleri mevcut sentetik demo artefaktına aittir. Nihai gerçek aday eval kapısında reddedildi. Son bulut/canlı yayın doğrulaması tamamlandığında makbuz `publication.json` ve `RELEASE.md` içine kaydedilir.
+Son doğrulamalar: 9 Python testi, 15 Cypress testi, beş Python ONNX referansı ve üretim build'i geçti. Parite ve oyun testleri mevcut sentetik demo artefaktına aittir. Nihai gerçek aday eval kapısında reddedildi. [Son Pages koşusu](https://github.com/zulal836/se-primer-v2-2026/actions/runs/42281454788) 15 test/build/deploy ile başarılı. Ayrıca 2/2 girişsiz canlı test geçti: ONNX, oyun sonu ve MP4. Yayımlanan kaynak commit'i `1fd3e31615e56d153d64fd5ea81d2fd79ec8d6da`; makbuz `publication.json`.
 
 `MODEL_SECIMI.md`: karşılaştırma öncesi sabitlenmiş yöntem. `test-results/final-model-selection.json`: beş katın gerçek sonuçları, yalnız CV ile aday seçimi, tek dış test sonucu ve ret. `TEST_SONUCLARI.md`: testler. `RELEASE.md`: dağıtım ve geri alma. `model/README.md`: mevcut sentetik artefaktın kartı ve başarısız gerçek adayın ayrımı. Ham CSV'ler public depoda yoktur.
