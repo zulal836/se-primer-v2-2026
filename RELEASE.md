@@ -1,5 +1,11 @@
 # Sürüm durumu ve dağıtım kararı
 
+## Son teslim durumu — eğitim içi seçim sonrası kapı yine geçilmedi
+
+Kullanıcı isteğiyle iki sabit aday, yalnız mevcut dış eğitim oturumlarında beş katlı grup CV ile karşılaştırıldı (`MODEL_SECIMI.md`, ön kayıt commit'i `edb0a9e`). Ortalama CV BA: ağırlıklı lojistik 0.470000, küçük ağaç 0.413333. Tek seçilen lojistik mevcut sabit testte bir kez değerlendirildi: BA=0.25 ve ayrıntılı recall=0.50. Kabul 0.70/0.65 altında; başka modele geçilip test tekrar kullanılmadı. Etiketler, veri, dış test, seed ve eşikler korunmuştur. Sklearn ile web'in eşit olasılık davranışı önceden yazılı p>=0.5 kararıyla tutarlı hâle getirildi.
+
+Gerçek aday yayımlanmadı. Mevcut uygulama/video sentetik demo olarak korunur; nihai HF bağlantısı ve gerçek model videosu eksiktir. HF oturumu yok, ancak kapı geçilmediği için giriş olsa da nihai yayın yapılmaz. 20 tutor değerlendirmesi v2 tesliminin engeli değildir. Hazır linkler ve forma yapıştırılabilecek doğru açıklama `TESLIM.md` içindedir. Aşağıdaki bölümler önceki denemelerin tarihçesidir.
+
 ## Güncel CSV sonrası — gerçek aday eğitildi, eval kapısında reddedildi
 
 6 Kasım 2026: beş CSV, 123 kaynak satırı, 24 yinelenen kaynak kaydı; birleşik veri 99 benzersiz karar. Yeni dosya 10 tamamlanmış oturum ve 30 yeni karar ekledi. Toplam 32 tamamlanmış/2 yarım oturum var. Tamamlanmış 96 karardan 49 etiket kullanılabilir (28 kısa/21 ayrıntılı); 47 boş hedef eğitim dışında. Ham dosyalar ve cevaplar korunmuştur.

@@ -4,7 +4,7 @@
 
 Türkçe, telefona uyumlu üç kararlı yazılım mühendisliği oyunu. Çift rezervasyon olayında sürüm geri alma, eşzamanlılık testi ve kişisel veriyi koruma ele alınır. Üç profil sorusu anlatımı uyarlar. Kural modu ile gerçek ONNX kullanan davranış modeli karşılaştırılabilir. Sunucu, kullanıcı hesabı veya ücretli API gerekmez.
 
-**Durum — 6 Kasım 2026, güncel CSV sonrası:** beş kaynak dosyadaki 123 satır, tekrarlar çıkarılınca 99 benzersiz karardır. 32 tamamlanmış ve 2 yarım oturum var. Tamamlanmış kararlarda 49 etiket kullanılabilir: 28 kısa/21 ayrıntılı; 47 boş hedef eğitim dışında. Veri kapısı geçti ve mevcut model gerçek veriyle eğitildi, fakat eval kapısında durdu: **balanced accuracy=0.50 (<0.70), ayrıntılı recall=0.00 (<0.65)**. Testteki altı ayrıntılı ihtiyacın tamamına kısa tahmini verdi. Yeni ONNX/config/referans üretimi ve yayın yapılmadı; önceki sentetik uygulama ve video korundu. Eşikler/split/seed değiştirilmedi. Güncel raporlar `test-results/real-data-audit.json`, `real-training-attempt.json`, `real-split-readiness.json` içinde.
+**Son teslim durumu — 6 Kasım 2026:** 32 tamamlanmış oturumdan 49 gerçek etiket kullanıldı (28 kısa/21 ayrıntılı). Eğitim oturumlarında beş katlı CV ile iki sabit aday karşılaştırıldı: ağırlıklı lojistik BA=0.470, küçük ağaç BA=0.413. Yalnız CV ile seçilen lojistik mevcut sabit testte bir kez değerlendirildi: **BA=0.25, ayrıntılı recall=0.50**; gerekli **0.70/0.65** kapısı geçilmedi. Nihai gerçek model yayımlanmadı; canlı uygulama ve 73 saniyelik video açıkça **sentetik demo** olarak korunuyor. Eşikler, seed, dış test ve cevaplar değiştirilmedi. Sonuçlar `test-results/final-model-selection.json`, yöntem `MODEL_SECIMI.md`, hazır bağlantılar/forma yazılacak açıklama **[TESLIM.md](TESLIM.md)** içinde. Önceki ödevin 20 tutor değerlendirmesi bu v2 teslimini engelleyen koşul değildir.
 
 ## Başlangıç: en fazla üç komut (Windows PowerShell)
 
@@ -32,7 +32,7 @@ En az **15 tamamlanmış gerçek oturum** toplayın (ör. üç gönüllü × be�
 
 Eğitim varsayılan olarak yalnız `data/oturumlar.csv` gerçek verisini okur. Başlangıç dosyası boştu; şimdi yalnız kullanıcının sağladığı CSV'lerden birleştirilen gerçek kayıtları içeriyor ve Git'ten hariç tutuluyor. Ham dosyalar ve cevaplar değiştirilmedi. `python scripts/audit_real_data.py` CSV'leri doğrular ve aynı oturum/kararı çift saymadan mevcut birleştiriciyle birleştirir. Public raporda yalnız toplamlar bulunur. Veri sözlüğü, saklama/silme ve birleştirme ayrıntıları `data/SOZLUK.md` içindedir. Kimlik ya da hasta verisi toplamayın. Toplanan gerçek CSV'yi public depoya göndermeyin.
 
-**Sonraki adım:** Veri sayısı ve test sınıfı koşulları artık yeterli; eksik olan modelin gerçek performansıdır. Gereken BA>=0.70 ve ayrıntılı recall>=0.65, ölçülen 0.50/0.00. Kullanılabilir 49 kararın tamamında seçenek değiştirme sıfır, yalnız dört kararda ipucu sinyali var. Doğal farklı davranış ve yardım ihtiyaçları olan yeni gönüllü oyunculardan, her kararda yardım öncesi gerçek ihtiyaç etiketiyle veri toplanabilir. Cevapları veya davranışı sınıf elde etmek için yönlendirmeyin; daha fazla veri başarı garantisi değildir. Model/özellik tasarımı değiştirilecekse mevcut holdout üzerinde tekrar tekrar ayar yapmak yerine önceden tanımlanmış yeni değerlendirme ve bağımsız yeni veri gerekir.
+**Teslim kararı:** Yeni veri beklemeden mevcut çalışan demo ve başarısız gerçek model sonuçlarıyla dosyalar tamamlandı. Kabul kapısı gevşetilmedi; test sonucuna göre başka aday denenmedi. Nihai gerçek model/HF/gerçek model videosu eksikleri TESLIM.md dosyasında açıkça listelenir. 20 tutor değerlendirmesi teslim/yayın kapısı değildir.
 
 ## Eğitim ve sözleşme
 
@@ -99,6 +99,7 @@ Teslim için dört gerçek bağlantı: GitHub reposu, commit'e sabit HF modeli, 
 2. Codex; eğitim, ONNX, yayın betikleri ve testleri yazıp komutlarla doğruladı; gerçek sonuçlar test raporunda yer alır.
 3. Codex; belgeler, tutor değerlendirme taslağı ve demo planını hazırladı. Tutor metinleri üretim sırasında LLM ile oluşturulmaz.
 4. Gerçek CSV'leri kullanıcı sağladı; Codex bunları denetleyip çift saymadan birleştirdi. İnsan yanıtları değiştirilmedi. Yeterli yeni etiketli oturumlar ve tutor insan incelemesi beklemektedir.
+
 
 
 

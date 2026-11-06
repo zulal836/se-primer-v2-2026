@@ -1,0 +1,170 @@
+{
+  "protocol": "group-cv-two-fixed-candidates-v1",
+  "data_sha256": "0a122bc7ce0b9b3a8d173cdd822ab07c2086f244f3d576214c948bce586598a5",
+  "seed": 42,
+  "cv": "StratifiedGroupKFold(5, shuffle=True, random_state=42)",
+  "selection_rule": "mean balanced accuracy, then mean recall, then logistic",
+  "candidates": {
+    "weighted_logistic": {
+      "folds": [
+        {
+          "fold": 1,
+          "train_sessions": 14,
+          "validation_sessions": 3,
+          "validation_class_counts": [
+            5,
+            1
+          ],
+          "session_overlap": 0,
+          "balanced_accuracy": 0.2,
+          "recall_ayrintili": 0.0
+        },
+        {
+          "fold": 2,
+          "train_sessions": 13,
+          "validation_sessions": 4,
+          "validation_class_counts": [
+            2,
+            4
+          ],
+          "session_overlap": 0,
+          "balanced_accuracy": 0.5,
+          "recall_ayrintili": 0.5
+        },
+        {
+          "fold": 3,
+          "train_sessions": 14,
+          "validation_sessions": 3,
+          "validation_class_counts": [
+            5,
+            4
+          ],
+          "session_overlap": 0,
+          "balanced_accuracy": 0.675,
+          "recall_ayrintili": 0.75
+        },
+        {
+          "fold": 4,
+          "train_sessions": 13,
+          "validation_sessions": 4,
+          "validation_class_counts": [
+            6,
+            4
+          ],
+          "session_overlap": 0,
+          "balanced_accuracy": 0.375,
+          "recall_ayrintili": 0.25
+        },
+        {
+          "fold": 5,
+          "train_sessions": 14,
+          "validation_sessions": 3,
+          "validation_class_counts": [
+            5,
+            2
+          ],
+          "session_overlap": 0,
+          "balanced_accuracy": 0.6,
+          "recall_ayrintili": 1.0
+        }
+      ],
+      "mean_balanced_accuracy": 0.47000000000000003,
+      "mean_recall_ayrintili": 0.5
+    },
+    "small_tree": {
+      "folds": [
+        {
+          "fold": 1,
+          "train_sessions": 14,
+          "validation_sessions": 3,
+          "validation_class_counts": [
+            5,
+            1
+          ],
+          "session_overlap": 0,
+          "balanced_accuracy": 0.1,
+          "recall_ayrintili": 0.0
+        },
+        {
+          "fold": 2,
+          "train_sessions": 13,
+          "validation_sessions": 4,
+          "validation_class_counts": [
+            2,
+            4
+          ],
+          "session_overlap": 0,
+          "balanced_accuracy": 0.375,
+          "recall_ayrintili": 0.75
+        },
+        {
+          "fold": 3,
+          "train_sessions": 14,
+          "validation_sessions": 3,
+          "validation_class_counts": [
+            5,
+            4
+          ],
+          "session_overlap": 0,
+          "balanced_accuracy": 0.575,
+          "recall_ayrintili": 0.75
+        },
+        {
+          "fold": 4,
+          "train_sessions": 13,
+          "validation_sessions": 4,
+          "validation_class_counts": [
+            6,
+            4
+          ],
+          "session_overlap": 0,
+          "balanced_accuracy": 0.4166666666666667,
+          "recall_ayrintili": 0.0
+        },
+        {
+          "fold": 5,
+          "train_sessions": 14,
+          "validation_sessions": 3,
+          "validation_class_counts": [
+            5,
+            2
+          ],
+          "session_overlap": 0,
+          "balanced_accuracy": 0.6,
+          "recall_ayrintili": 1.0
+        }
+      ],
+      "mean_balanced_accuracy": 0.4133333333333333,
+      "mean_recall_ayrintili": 0.5
+    }
+  },
+  "selected": "weighted_logistic",
+  "test_evaluations": 1,
+  "holdout_previously_seen_by_baseline": true,
+  "test_metrics": {
+    "balanced_accuracy": 0.25,
+    "recall_ayrintili": 0.5,
+    "confusion_matrix": [
+      [
+        0,
+        5
+      ],
+      [
+        3,
+        3
+      ]
+    ]
+  },
+  "train_sessions": 17,
+  "test_sessions": 6,
+  "train_class_counts": [
+    23,
+    15
+  ],
+  "test_class_counts": [
+    5,
+    6
+  ],
+  "outer_session_overlap": 0,
+  "gate_passed": false
+}

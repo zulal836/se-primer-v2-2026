@@ -2,6 +2,16 @@
 
 ## En güncel durum
 
+**Teslim için son karşılaştırma tamamlandı; yeni veri beklenmeden mevcut dosyalar toparlandı.** Kullanıcı iki adayı yalnız eğitim içi oturum CV ile seçmeyi, sonra tek adayı sabit testte değerlendirmeyi istedi. `MODEL_SECIMI.md` protokolü önce `edb0a9e` commit'inde sabitlendi. Etiket/sınıf sırası doğru bulundu; CV/test kararı web/spec ile aynı p>=0.5 yapıldı (eşitlikte sklearn predict farkı giderildi).
+
+- 5 katlı StratifiedGroupKFold(seed=42), yalnız dış eğitim: ağırlıklı lojistik CV BA=0.47, küçük ağaç CV BA=0.413333. CV recall her ikisinde 0.50. Lojistik seçildi.
+- Seçilen lojistik sabit dış testte **bir kez**: BA=0.25, ayrıntılı recall=0.50, confusion matrix `[[0,5],[3,3]]`. Kabul 0.70/0.65 geçilmedi. Teste göre başka adaya geçilmedi. Aynı veri/protokol ikinci çalıştırması reddedilir; `train.py --compare` tekrar çalıştırılmamalı, kayıtlı rapor kullanılmalı.
+- Mevcut test daha önce temel modelde görüldü; hiç görülmemiş bağımsız test iddiası yok. Eşikler, seed, dış test ve insan cevapları değişmedi.
+- Gerçek nihai model/HF/gerçek video eksik; önceki sentetik uygulama ve video korunuyor. HF girişi yok. **20 tutor değerlendirmesi bu v2 tesliminin engeli değildir**; kullanıcı artık yeni veri beklenmeden doğru durumla teslim hazırlığı istedi.
+- `TESLIM.md` dört bağlantının durumunu, gerçek eksikleri ve forma yazılabilecek açıklamayı içerir. Form gönderilmez. Ham CSV'ler Git'ten hariç tutulmaya devam eder.
+
+## Önceki temel model denemesi
+
 **primer-guncel.csv dahil edildi — veri kapısı geçti, model eval kapısında kaldı.** Beş CSV 123 satır içeriyor; kaynaklar arasındaki 24 tekrar ayıklanınca 99 benzersiz karar kaldı. Yeni dosya 30 yeni karar/10 tamamlanmış oturum ekledi; önceki kayıtlar çift sayılmadı. 34 farklı oturumun 32'si tamamlanmış, 2'si yarım. Ham dosyalar/cevaplar değişmedi, Git'ten hariç tutuldu.
 
 - Tamamlanmış 96 karar: **28 kısa, 21 ayrıntılı, 47 boş**. Eğitimde kullanılabilir **49 etiket**, herhangi bir etiketi olan 23 tamamlanmış oturum var. Tüm 99 kararda 28 kısa/22 ayrıntılı/49 boş; yarım oturumdaki bir etiket ve boşlar eğitim dışında.

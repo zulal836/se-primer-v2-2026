@@ -1,5 +1,22 @@
 # Gerçekte çalıştırılan kontroller
 
+## Teslim için son eğitim karşılaştırması
+
+`MODEL_SECIMI.md`, karşılaştırma çalıştırılmadan önce `edb0a9e` commit'inde sabitlendi. Önce etiket/girdi akışı incelendi: UI/CSV `0=kısa`, `1=ayrıntılı`; boş hedefler eğitim dışında; özellikler yalnız süre/değiştirme/ipucu. `secim` veya ihtiyaç etiketi özelliklere girmez. sklearn sınıf sırası `[0,1]`, ONNX/Python/web ikinci sütunu p(ayrıntılı) olarak kullanır. Veri sınıflarında terslik bulunmadı. Sınır durumu düzeltildi: sklearn `predict` eşit olasılıkta ilk sınıfı seçebildiğinden CV/test kararı da web/spec gibi açık `p>=0.5` kullanıyor; eşik değişmedi.
+
+Yalnız dış eğitim verisinde beş katlı StratifiedGroupKFold(seed=42) ile iki sabit aday karşılaştırıldı. Katlar arasında oturum sızıntısı 0; StandardScaler her eğitim katında fit edilir.
+
+| Aday | Ortalama CV dengeli doğruluk | Ortalama CV ayrıntılı recall |
+|---|---:|---:|
+| Sınıf ağırlıklı lojistik regresyon | 0.470000 | 0.500000 |
+| Küçük sınıf ağırlıklı ağaç (derinlik 3, min yaprak 3) | 0.413333 | 0.500000 |
+
+CV ile **lojistik regresyon** seçildi; seçim dış test okunmadan rapora yazıldı. Aynı sabit dış testte yalnız bu aday **bir kez** değerlendirildi: **BA=0.25, ayrıntılı recall=0.50**, confusion matrix `[[0,5],[3,3]]` (satırlar gerçek, sütunlar tahmin; sınıf sırası kısa/ayrıntılı). Eşikler >=0.70/>=0.65 korunarak aday reddedildi. Test sonucuyla ağaca geçilmedi, tekrar tarama yapılmadı. Dış test daha önce temel lojistik regresyonda görüldüğünden tüm süreç bağımsız, hiç görülmemiş test gibi sunulmaz. Rapor `test-results/final-model-selection.json`; tekrar aynı veri/protokolle test değerlendirmesi kodda engellenir.
+
+Nihai gerçek paket/HF/video oluşturulmadı; mevcut sentetik model korunuyor. 20 tutor insan değerlendirmesi bu v2 tesliminin kapısı değildir. Önceki veri denetimi ve temel model sonuçları aşağıda tarihçe olarak yer alır.
+
+Son teslim doğrulaması gerçekten çalıştırıldı: **9/9 Python unittest**, beş Python ONNX referansı, **15/15 Cypress** (yaklaşık 40 sn) ve üretim build'i geçti. Yeni protokol testleri seçim sonucunun yalnız CV sıralamasından geldiğini, dış test değerlendirme sayısının bir olduğunu, aynı veri/protokol tekrarının fit öncesi reddedildiğini ve aday parametrelerinin sabitliğini doğrular. ONNX/parite/E2E başarıları korunmuş **sentetik** yayımlanmış artefakta aittir; başarısız gerçek aday için ONNX başarısı iddiası yoktur. Model/config/manifest/oracle/video üzerinde Git farkı bulunmadı. Veri/protokol raporu yalnız toplamlar ve hash içerir, ham insan kayıtları public değildir.
+
 ## Güncel CSV sonrası gerçek eğitim ve eval sonucu
 
 Beş CSV yeniden denetlendi/birleştirildi: 123 kaynak satırında 24 tekrar, **99 benzersiz karar**, 32 tamamlanmış/2 yarım oturum. Yeni dosyadan 30 yeni karar geldi. Ham dosya hash'leri değişmedi. Tamamlanmış kararlarda 49 kullanılabilir etiket (28 kısa/21 ayrıntılı), 47 boş hedef var. Yarım oturumdaki etiketler ve boş hedefler eğitim dışında tutuldu.
