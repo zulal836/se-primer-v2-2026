@@ -1,15 +1,17 @@
 # Teslim bağlantıları ve dürüst durum açıklaması
 
 1. GitHub: https://github.com/zulal836/se-primer-v2-2026
-2. Commit'e sabit **nihai gerçek HF modeli yoktur**: kabul kapısı geçilmediği için yayımlanmadı. Bağlantı uydurulamaz. HF girişi de mevcut değil.
+2. Commit'e sabit **HF SENTETİK DEMO modeli**: https://huggingface.co/zulalertrk/se-primer-v2-synthetic-demo/resolve/d79adb407da3be479d77fe4a909b932bc1b77a8a/model.onnx
 3. Girişsiz uygulama: https://zulal836.github.io/se-primer-v2-2026/
 4. 73.040 saniyelik demo: https://zulal836.github.io/se-primer-v2-2026/demo.mp4
 
 Uygulama ve video açıkça etiketlenmiş **sentetik geliştirme demosunu** gösterir; başarısız gerçek model kullanılıyormuş gibi sunulmaz. Video gerçek tarayıcı kaydı, otomatik oynatım ve sessizdir.
 
+HF deposu public ve yalnız `0.1.0-demo` modelidir. Model/config/kart/şema **aynı** `d79adb407da3be479d77fe4a909b932bc1b77a8a` commit'inde; [config](https://huggingface.co/zulalertrk/se-primer-v2-synthetic-demo/resolve/d79adb407da3be479d77fe4a909b932bc1b77a8a/config.json) ve [model kartı](https://huggingface.co/zulalertrk/se-primer-v2-synthetic-demo/blob/d79adb407da3be479d77fe4a909b932bc1b77a8a/README.md). Bu HF DEMO bağlantısı nihai kabul edilmiş gerçek model bağlantısı değildir. `publishable=false` ve gerçek model ret kararı korunur.
+
 ## Forma yazılabilecek kısa açıklama
 
-> Türkçe web oyunu, gönüllü anonim veri toplama, ONNX tarayıcı çıkarımı, Python/web paritesi ve E2E regresyon testleri tamamlandı. Gerçek CSV'ler tekrarlar ayıklanarak birleştirildi: 32 tamamlanmış oturum, 49 kullanılabilir etiket. Sabit dış test korunarak yalnız eğitim oturumlarında beş katlı grup çapraz doğrulamasıyla sınıf ağırlıklı lojistik regresyon ve küçük karar ağacı karşılaştırıldı. Eğitim doğrulamasında seçilen lojistik regresyon dış testte bir kez değerlendirildi: dengeli doğruluk 0,25 ve ayrıntılı yardım recall 0,50. Önceden belirlenen 0,70/0,65 kabul kapısı geçilemediği için nihai gerçek model yayımlanmadı. Mevcut canlı uygulama ve 73 saniyelik video sentetik demo olarak etiketlidir. Başarısız gerçek eğitim sonuçları, model seçim protokolü ve test raporları depodadır.
+> 32 tamamlanmış gerçek oturumdan 49 kullanılabilir etiketle yapılan gerçek eğitim, sabit testte BA=0,25 ve ayrıntılı yardım recall=0,50 vererek önceden belirlenen 0,70/0,65 kabul kapısını geçemedi. Bu nedenle nihai gerçek model yayımlanmadı. Paylaşılan HF modeli açıkça SENTETİK GELİŞTİRME DEMOSU olan 0.1.0-demo sürümüdür; model/config/kart aynı commit'e, web uygulaması bu commit'e sabitlenmiştir. Sentetik değerlendirme sonuçları gerçek kullanıcı başarımı değildir. Canlı uygulama ve 73 saniyelik video aynı sentetik modeli gösterir. Parite, regresyon ve gerçek modelin başarısızlık sonuçları depoda belgelenmiştir.
 
 ## Tamamlanmayan v2 koşulları
 
@@ -17,7 +19,7 @@ Uygulama ve video açıkça etiketlenmiş **sentetik geliştirme demosunu** gös
 - Aynı HF commit'ine sabitlenmiş nihai model/config bağlantısı ve o modelle çalışan web yayını.
 - Nihai gerçek modelle yenilenmiş 60–90 saniyelik video. Mevcut sentetik demo videosu hazırdır.
 
-Önceki ödevden kalan 20 tutor değerlendirmesi **bu v2 tesliminin engeli değildir**. Dosya taslak/bekliyor olarak korunur, yapılmış insan değerlendirmesi iddiası yoktur. Form kullanıcı tarafından gönderilir; formun HF alanı zorunluysa mevcut eksik link için gerçek durum açıklanmalı, sentetik link nihai model diye yazılmamalıdır.
+Önceki ödevden kalan 20 tutor değerlendirmesi **bu v2 tesliminin engeli değildir**. Dosya taslak/bekliyor olarak korunur, yapılmış insan değerlendirmesi iddiası yoktur. Form kullanıcı tarafından gönderilir; HF alanına bu demo linki yazılırsa açıklamada SENTETİK DEMO olduğu ve gerçek modelin kabul edilmediği mutlaka belirtilir.
 
 ## İnceleme için dosyalar
 

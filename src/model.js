@@ -6,7 +6,7 @@ export const features = ["bekleme_sn", "degistirme_sayisi", "ipucu_sayisi"];
 let session, config;
 export async function loadModel() {
   const base = import.meta.env.BASE_URL;
-  const manifest = await fetch(`${base}model/source.json`).then((r) => {
+  const manifest = await fetch(`${base}model/source.json`, {cache:'no-store'}).then((r) => {
     if (!r.ok) throw Error("Model henüz hazırlanmadı");
     return r.json();
   });

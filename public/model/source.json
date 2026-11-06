@@ -1,1 +1,5 @@
-{"repo": null, "commit": null, "mode": "local-demo"}
+{
+  "repo": "zulalertrk/se-primer-v2-synthetic-demo",
+  "commit": "d79adb407da3be479d77fe4a909b932bc1b77a8a",
+  "mode": "hf-pinned-synthetic-demo"
+}

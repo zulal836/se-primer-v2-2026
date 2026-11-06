@@ -1,5 +1,13 @@
 # Sürüm durumu ve dağıtım kararı
 
+## Ayrı public SENTETİK GELİŞTİRME DEMOSU HF yayını
+
+Kullanıcının açık talebiyle yalnız mevcut `0.1.0-demo` yayımlandı: `zulalertrk/se-primer-v2-synthetic-demo`, tam commit `d79adb407da3be479d77fe4a909b932bc1b77a8a`. Model/config/kart/şema tek commit'te yüklendi; dört dosya anonim indirilerek yerel SHA-256 ile karşılaştırıldı. Makbuz `release-demo.json`. Model ve config byte'ları değişmedi, `publishable=false` ve sentetik metrikler korundu. Gerçek model kapısını uygulayan `scripts/publish_model.py` değiştirilmedi. Yeni gerçek eğitim yapılmadı; BA=0.25/recall=0.50 ret kararı geçerlidir.
+
+Web manifesti `hf-pinned-synthetic-demo` moduyla tam HF commit'ine bağlandı. Değişken main dalından indirme yok. `source.json` manifesti yeni yayınların tarayıcı önbelleğinde eski kalmaması için no-store ile okunur; model/config ise sabit commit URL'sinden gelir. Mevcut MP4 aynı `5a08f081cdf16ec82365879e2cad5479575481de0a3eb59e1313a1f8a1982938` SHA-256'lı ONNX modelini gösterdiğinden yeniden çekilmedi.
+
+Demo geri alma: `public/model/source.json` eski Git sürümündeki `local-demo` manifestine geri alınabilir; paketlenmiş model/config byte'ları aynı olduğundan bu yalnız dosya barındırma kaynağını değiştirir. Alternatif olarak doğrulanmış bu HF commit'i korunur. Testler ve normal Pages push sonrası kaynak manifestini doğrulayın. Gerçek model kabulü gibi sunulmaz.
+
 ## Son teslim durumu — eğitim içi seçim sonrası kapı yine geçilmedi
 
 Teslim kaynak commit'i `1fd3e31615e56d153d64fd5ea81d2fd79ec8d6da` normal push ile gönderildi. [Koşu 42281454788](https://github.com/zulal836/se-primer-v2-2026/actions/runs/42281454788): 15 tarayıcı testi, build ve Pages deploy başarılı. Son girişsiz canlı kontrolde 2/2 test geçti (yaklaşık 65 sn); mevcut sentetik ONNX, oyun akışı ve MP4 doğrulandı. Yeni gerçek model yayımlanmış değildir. Kaynak ve test raporları GitHub'da günceldir.

@@ -1,0 +1,15 @@
+{
+  "repo": "zulalertrk/se-primer-v2-synthetic-demo",
+  "commit": "d79adb407da3be479d77fe4a909b932bc1b77a8a",
+  "mode": "hf-pinned-synthetic-demo",
+  "publication_kind": "SENTETİK GELİŞTİRME DEMOSU",
+  "final_real_model_accepted": false,
+  "config_publishable": false,
+  "files_sha256": {
+    "model.onnx": "5a08f081cdf16ec82365879e2cad5479575481de0a3eb59e1313a1f8a1982938",
+    "config.json": "34e56b8aafcad402df7e1f85c7b93883ec6d45b5f75298e18eb1a363a067137c",
+    "README.md": "aa9b143544d74bdf85e5fa2528c84abcf486dab64dd6e9bacfb56c0470c8416c",
+    "config.schema.json": "ee8ef6779cb27335f1626acbbffe8bc8d7786e3ed3f4b3908c2976c56d05f0f1"
+  },
+  "anonymous_download_verified": true
+}

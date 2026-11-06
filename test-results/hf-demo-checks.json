@@ -1,0 +1,28 @@
+{
+  "hf_repo": "zulalertrk/se-primer-v2-synthetic-demo",
+  "hf_commit": "d79adb407da3be479d77fe4a909b932bc1b77a8a",
+  "anonymous_hf_files_verified": true,
+  "hf_files_match_uploaded_byte_hashes": {
+    "model.onnx": true,
+    "config.json": true,
+    "README.md": true,
+    "config.schema.json": true
+  },
+  "protected_binary_files_unchanged": {
+    "model/model.onnx": true,
+    "public/model/model.onnx": true,
+    "public/demo.mp4": true
+  },
+  "protected_text_files_unchanged_after_git_newline_normalization": {
+    "model/config.json": true,
+    "public/model/config.json": true,
+    "test-results/final-model-selection.json": true,
+    "spec.md": true,
+    "train.py": true,
+    "scripts/publish_model.py": true
+  },
+  "max_browser_python_difference": 1.1920928955078125e-07,
+  "config_publishable": false,
+  "synthetic_demo_only": true,
+  "video_regenerated": false
+}

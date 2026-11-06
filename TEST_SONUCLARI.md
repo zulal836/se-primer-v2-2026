@@ -1,5 +1,11 @@
 # Gerçekte çalıştırılan kontroller
 
+## Sabit HF commit'ine bağlı SENTETİK DEMO yayını
+
+0.1.0-demo, `zulalertrk/se-primer-v2-synthetic-demo` deposuna tam `d79adb407da3be479d77fe4a909b932bc1b77a8a` commit'inde yüklendi. Model/config/kart/şema aynı commit'te; dördü de anonim indirilerek byte hash'leri doğrulandı. `release-demo.json` makbuzdur. Model SHA-256 `5a08f081cdf16ec82365879e2cad5479575481de0a3eb59e1313a1f8a1982938`, config SHA-256 `34e56b8aafcad402df7e1f85c7b93883ec6d45b5f75298e18eb1a363a067137c`. Model/config değişmedi; `publishable=false` korundu. Gerçek modelin BA=0.25/recall=0.50 ret kararı değiştirilmedi.
+
+Bu yayında **15/15 Python unittest**, beş Python ONNX referansı ve üretim build'i geçti. Sabit HF manifestiyle **15/15 yerel Cypress testi** yaklaşık 26 saniyede geçti; tarayıcı HF commit'inden gerçek ONNX/config indirdi, model dosyası hash'ini Python referansına karşı denetledi ve beş olasılıkta <1e-4 pariteyi doğruladı. Bu testler sentetik demo dosyasına aittir; gerçek kullanıcı başarımı iddiası yoktur. Mevcut video aynı dosyayı gösterdiğinden yeniden çekilmedi.
+
 ## Teslim için son eğitim karşılaştırması
 
 Son bulut koşusu 42281454788, kaynak `1fd3e31`: 15 Cypress testi/build/Pages deploy başarılı. Ayrıca bu oturumda 2/2 girişsiz canlı test yaklaşık 65 saniyede geçti: mevcut sentetik ONNX'in beş referansı, oyun sonu ve herkese açık MP4. Bu sonuçlar gerçek adayın başarısız kabul sonucunu değiştirmez.
